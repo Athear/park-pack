@@ -47,15 +47,15 @@ User.init({
           len: [8],
         },
     },
-    friends: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            through: 'friends',
+    // friends: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: 'user',
+    //         through: 'friends',
             
-        }
+    //     }
         
-    }
+    // }
 
 
 },

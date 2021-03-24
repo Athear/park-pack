@@ -24,6 +24,16 @@ User.belongsToMany(User, {
         model: Friends,
         unique: false,
     },
-}),
+    foreignKey: 'user_id',
+    as: 'user',
+});
+
+User.belongsToMany(User, {
+    through: {
+        model: Friends,
+    },
+    foreignKey: 'friend_id',
+    as: 'test',
+});
 
 module.exports = { User, Dog, Friends };
