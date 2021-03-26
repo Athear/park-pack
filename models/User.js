@@ -33,7 +33,7 @@ User.init({
 
     },
     gender: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: true,
     },
     genPref: {

@@ -52,4 +52,4 @@ Dog.belongsToMany(Activity, {
 })
 
 
-module.exports = { User, Dog, Friends };
+module.exports = { User, Dog, Friends, Join_Dog_Activity, Activity };
