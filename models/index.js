@@ -1,6 +1,8 @@
 const User = require('./User');
 const Friends = require('./Friends');
 const Dog = require('./Dog');
+const Activity = require('./Activity');
+const Join_Dog_Activity = require('./Join_Dog_Activity');
 
 User.hasMany(Dog, {
     foreignKey: 'user_id',
@@ -35,5 +37,19 @@ User.belongsToMany(User, {
     foreignKey: 'friend_id',
     as: 'test',
 });
+
+Activity.belongsToMany(Dog, {
+    through: {
+        model: Join_Dog_Activity,
+    },
+    foreignKey: 'activity_id'
+});
+Dog.belongsToMany(Activity, {
+    through: {
+        model: Join_Dog_Activity,
+    },
+    foreignKey: 'dog_id'
+})
+
 
 module.exports = { User, Dog, Friends };

@@ -38,10 +38,6 @@ Dog.init({
         type: DataTypes.INTEGER,
         allowNull: true,
     },
-    activities: {
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
     pic: {
         type: DataTypes.STRING,
         allowNull: true,
