@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-require('dotenv').config({ path: '/Users/chrisgutierrez/Desktop/park-pack/.env'});
+require('dotenv').config();
 
 let sequelize;
 
