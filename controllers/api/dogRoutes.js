@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Dog, Activity, User, Join_Dog_Activity } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { withAuth, apiAuth } = require('../../utils/auth');
 
-router.get('/', withAuth, async (req,res) => {
+
+router.get('/', apiAuth, async (req,res) => {
     try {
         const Dogs = await Dog.findAll({
             include: [
@@ -22,9 +23,9 @@ router.get('/', withAuth, async (req,res) => {
       }
 });
 
-router.get('/:id', withAuth, async (req,res) => {
+router.get('/:id', apiAuth, async (req,res) => {
     try {
-        const Dogs = await Dog.findByPl(req.params.id, {
+        const Dogs = await Dog.findByPk(req.params.id, {
             include: [
               {
                 model: User,
@@ -41,7 +42,7 @@ router.get('/:id', withAuth, async (req,res) => {
         res.status(400).json(err);
       }
 });
-router.post('/', withAuth, async (req, res) => {
+router.post('/', apiAuth, async (req, res) => {
   try {
     const newDog = await Dog.create({
       ...req.body,
@@ -54,7 +55,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', apiAuth, async (req, res) => {
   try {
     const dogData = await Dog.destroy({
       where: {
