@@ -139,6 +139,6 @@ const dogActivityData = [
   },
 ];
 
-const seedjoinDogAcitivty = () => Join_Dog_Activity.bulkCreate(dogActivityData);
+const seedjoinDogActivity = () => Join_Dog_Activity.bulkCreate(dogActivityData);
 
-module.exports = seedjoinDogAcitivty;
+module.exports = seedjoinDogActivity;

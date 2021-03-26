@@ -1,7 +1,8 @@
 const sequelize = require('../config/connection');
-const seedjoinDogActivity = require('./joinDogActivityData')
+const seedjoinDogActivity = require('./joinDogActivity')
 const seedDog = require('./dogData');
 const seedUser = require('./userData');
+const seedActivity = require('./activityData');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -9,6 +10,8 @@ const seedDatabase = async () => {
   await seedUser();
   
   await seedDog();
+
+  await seedActivity();
 
   await seedjoinDogActivity();
 
