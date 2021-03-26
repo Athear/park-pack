@@ -11,6 +11,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/signup", async (req, res) => {
+  try {
+    console.log(res);
+    res.render("profiles");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//boiler template below
+
 // router.get('/', withAuth, async (req, res) => {
 //   try {
 //     const userData = await User.findAll({
