@@ -42,10 +42,14 @@ router.get('/:id', apiAuth, async (req,res) => {
         res.status(400).json(err);
       }
 });
-router.post('/', apiAuth, async (req, res) => {
+router.post('/dogprofile', apiAuth, async (req, res) => {
   try {
     const newDog = await Dog.create({
-      ...req.body,
+      name: req.body.name,
+      breed: req.body.breed,
+      age: req.body.age,
+      weight: req.body.weight,
+      energy: req.body.energy,
       user_id: req.session.user_id,
     });
 
