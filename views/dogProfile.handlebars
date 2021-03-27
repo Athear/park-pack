@@ -1,5 +1,73 @@
- <h2>Create Doggy Profile</h2>
+<<<<<<< Updated upstream:views/dogProfile.handlebars
+ <{{!-- Save user data, and log them in so they can create a dog profile(or 2!)--}}
+=======
+ <h2>Create Parent Profile</h2>
 
+    <form class=" form dogProfileForm">
+        <div class="form-group">
+            <label>First Name:</label>
+            <input class="form-input" type="text" id="firstName" />
+        </div>
+        <div class="form-group">
+            <label>Last Name:</label>
+            <input class="form-input" type="text" id="lastName" />
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input class="form-input" type="email" id="email" />
+        </div>
+        <div class="form-group">
+            <label>Gender Identity:</label>
+        </br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="both" name="gender" value="both">
+            <label for="other">Non-binary</label>
+        </div>
+           <div class="form-group">
+            <label>Friend Preference:</label>
+           </br>
+            <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label><br>
+  <input type="radio" id="both" name="gender" value="both">
+  <label for="other">No Preference</label>
+        </div>
+        <div class="form-group">
+            <label>Zip Code:</label>
+            <input class="form-input" type="number" id="zip" />
+        </div>
+        <!-- Slider resource https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+        <div class="slidecontainer form-group">
+            <label>Max Distance Willing to Travel:</label>
+            <input type="range" min="1" max="5" value="3" class="slider" id="energyLevel">
+            </br>
+            <small id="distanceRange" class="form-text text-muted">10 20 30 40 50+</small>
+        </div>
+        </div>
+        <div class="form-group">
+            <label>User Name:</label>
+            <input class="form-input" type="text" id="lastName" placeholder="default email from ^^"/>
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input class="form-input" type="password" id="password" />
+        </div>
+        <!-- <div class="form-group">
+            <label>Confirm Password:</label>
+            <input class="form-input" type="password" id="confirmpassword" />
+        </div> -->
+<button class="btn btn-warning">Create My Profile!</button>
+        </div>
+
+{{!-- Save user data, and log them in so they can create a dog profile(or 2!)--}}
+>>>>>>> Stashed changes:views/profiles.handlebars
+
+<h2>Create Doggy Profile</h2>
+ 
     <form class=" form dogProfileForm">
         <div class="form-group">
             <label>Name:</label>
@@ -44,25 +112,30 @@
             <small id="sliderRange" class="form-text text-muted">1 2 3 4 5</small>
         </div>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect2">Activities</label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option>Hiking</option>
-                <option>Leisurely Walks</option>
-                <option>Frisbee</option>
-                <option>Squeaky Toys</option>
-                <option>Small-dog friendly</option>
-                <option>Big-dog friendly</option>
-                <option>Child friendly</option>
-                <option>Cat friendly</option>
-            </select>
+       <div class="form-group">
+            <label><h5>Activities:</h5></label>
+            <input class="form-input" type="checkbox" id="hiking" value="hike">
+            <label for="male">Hiking</label>
+            <input class="form-input" type="checkbox" id="walk" value="walk">
+            <label for="walk">Leisurely Walks</label>
+            <input class="form-input" type="checkbox" id="frisbee" value="frisbee">
+            <label for="walk">Frisbee</label>
+            <input class="form-input" type="checkbox" id="toy" value="toy">
+            <label for="walk">Squeaky Toys</label>
+            <input class="form-input" type="checkbox" id="fetch" value="fetch">
+            <label for="walk">Fetch</label>
+            <input class="form-input" type="checkbox" id="small" value="smalldogfriendly">
+            <label for="walk">Small-dog friendly</label>
+            <input class="form-input" type="checkbox" id="fetch" value="bigdog">
+            <label for="walk">Big-dog friendly</label>
+            <input class="form-input" type="checkbox" id="fetch" value="bigdog">
+            <label for="walk">Child friendly</label>
+               
+        </div>
+
         </div>
 
 
 
 
-        </div>
-
-
-
-{{!-- <script src="/js/login.js"></script> --}}
+{{!-- <script src="/js/profile.js"></script> --}}
