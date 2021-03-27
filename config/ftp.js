@@ -40,4 +40,13 @@ Client.prototype.chdir = function (path){
     })
 }
 
+Client.prototype.write = function(source,target){
+    return new Promise((resolve,reject)=>{
+        this.put(source,target,(err)=>{
+            if (err) reject(new Error(err));
+            resolve(target+' created');
+        });
+    });
+}
+
 module.exports = {initialize};

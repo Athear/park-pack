@@ -52,6 +52,21 @@ const findFilePath = async () =>{
 
 }
 
+const doNewFile = async () =>{
+    const location = 'user-5'
+    const sourceFile = 'README.md'
+    const targetFile = 'here_is_a_thing.md'
+
+    const client = await ftp.initialize();
+    const loc = await client.chdir(location);
+    const thing = await client.write(sourceFile,targetFile);
+    
+    console.log(loc);
+    console.log(thing);
+    client.end();
+}
+
 // testRun();
 // testFilePath();
-findFilePath();
+// findFilePath();
+doNewFile();
