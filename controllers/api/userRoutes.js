@@ -1,8 +1,37 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+//test in postman with POST http://localhost:3001/api/users/userprofile
 
+router.post("/userprofile", async (req, res) => {
+  console.log("Incoming: user data: \n", req.body)
+  try {
+    const userData = await User.findOne({ where: { email: req.body.email } });
 
+    if (userData) {
+      res.status(400).json({ message: "Email already exists in our system" });
+      return;
+    } else if (!userData) {
+      const user = new User({
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
+        email: req.body.email,
+        zip: req.body.zipcode,
+        password: req.body.password
+        // continue adding user values to save
+      });
+      user.save().then((result) => {
+        console.log(result);
+        res.status(200).json({
+          message: "User created",
+        });
+      });
+    }
+  } catch (err) {
+    console.log("create user FAILED", err)
+    res.status(400).json(err);
+  }
+});
 
 router.post("/login", async (req, res) => {
   try {

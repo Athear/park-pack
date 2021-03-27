@@ -1,7 +1,8 @@
 const { User } = require('../models')
 const userData = [
     {
-      name : "Carolyn",
+      first_name : "Carolyn",
+      last_name : "Hilpisch",
       email : "Carolyn@hotmail.com",
       password : "password12345",
       gender: "F",
@@ -9,7 +10,8 @@ const userData = [
       genpref: true
     },
     {
-      name : "Mary",
+      first_name : "Mary",
+      last_name : "Contrary",
       email : "marymary@gmail.com",
       password : "password12345",
       gender: "F",
@@ -17,7 +19,8 @@ const userData = [
       genpref: true
     },
     {
-      name : "Rebecca",
+      first_name : "Rebecca",
+      last_name : "Noorgard",
       email : "rebecca@rebecca.com",
       password : "password12345",
       gender : "F",
@@ -25,7 +28,8 @@ const userData = [
       genpref: false
     },
     {
-      name : "Johnny",
+      first_name : "Johnny",
+      last_name : "Five",
       email : "johnnyg@msn.com",
       password : "password12345",
       gender : "M",
@@ -33,7 +37,8 @@ const userData = [
       genpref: false
     },
     {
-      name : "Khang",
+     first_name : "Khang",
+     last_name : "Mystery",
       email : "khang@khang.com",
       password : "password12345",
       gender : "M",
@@ -41,7 +46,8 @@ const userData = [
       genpref: false
     },
     {
-      name : "Andrea",
+      first_name : "Andrea",
+      last_name : "Banandrea",
       email : "andrea@andrea.com",
       password : "password12345",
       gender : "F",
@@ -49,7 +55,8 @@ const userData = [
       genpref: false
     },
     {
-      name : "Jennifer",
+      first_name : "Jennifer",
+      last_name : "Nelson",
       email : "jennifer@jennifer.com",
       password : "password12345",
       gender : "F",
@@ -57,7 +64,8 @@ const userData = [
       genpref: false
     },
     {
-      name : "Markki",
+      first_name : "Markki",
+      last_name : "Meyer",
       email : "markki@markki.com",
       password : "password12345",
       gender : "F",
@@ -65,7 +73,8 @@ const userData = [
       genpref: false
     },
     {
-      name : "Todd",
+      first_name : "Todd",
+      last_name : "Malone",
       email : "todd@todd.com",
       password : "password12345",
       gender : "M",
@@ -73,7 +82,8 @@ const userData = [
       genpref: false
     },
     {
-      name : "Nate",
+      first_name : "Nate",
+      last_name : "Perfetti",
       email : "nate@nate.com",
       password : "password12345",
       gender : "M",
