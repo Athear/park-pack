@@ -38,7 +38,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/mypack", withAuth, (req, res => {
+router.get("/mypack", withAuth, async (req, res) => {
   try {
     const userData = await User.findbyPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -61,7 +61,7 @@ router.get("/mypack", withAuth, (req, res => {
   } catch (err) {
     res.status(500).json(err);
   }
-}));
+});
 //boiler template below
 
 // router.get('/', withAuth, async (req, res) => {
