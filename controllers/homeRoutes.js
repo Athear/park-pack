@@ -11,10 +11,19 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/signup", async (req, res) => {
+router.get("/userprofile", async (req, res) => {
   try {
     console.log(res);
-    res.render("profiles");
+    res.render("userProfile");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/dogprofile", async (req, res) => {
+  try {
+    console.log(res);
+    res.render("dogProfile");
   } catch (err) {
     res.status(500).json(err);
   }
