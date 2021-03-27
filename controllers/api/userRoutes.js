@@ -1,7 +1,10 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-router.post("/userProfile", async (req, res) => {
+
+//test in postman with POST http://localhost:3001/api/users/userprofile
+
+router.post("/userprofile", async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -13,8 +16,6 @@ router.post("/userProfile", async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         zip: req.body.zip,
-        // gender: req.body.gender,
-        // genPref: req.body.
         password: hash
         // continue adding user values to save
       });
@@ -26,36 +27,11 @@ router.post("/userProfile", async (req, res) => {
       });
     }
   } catch (err) {
+    console.log("create user FAILED"),
     res.status(400).json(err);
   }
 });
 
-//dog profile post with endpoint
-router.post("/dogProfile", async (req, res) => {
-  try {
-    const userData = await User.findOne({ where: { email: req.body.email } });
-
-    if (userData) {
-      res.status(400).json({ message: "Email already exists in our system" });
-      return;
-    } else if (!userData) {
-      const dog = new Dog({
-        name: req.body.name,
-        email: req.body.email,
-        password: hash,
-        // continue adding user values to save
-      });
-      user.save().then((result) => {
-        console.log(result);
-        res.status(200).json({
-          message: "User created",
-        });
-      });
-    }
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 router.post("/login", async (req, res) => {
   try {
