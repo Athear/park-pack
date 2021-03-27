@@ -57,7 +57,22 @@ h2 {
   /* jumbotron styling */
   .jumbotron {
     padding: 2rem;
-    margin-bottom: 2rem;
-    background-color: #1d3557;
+    /* background-color: #1d3557; */
+    background-color: #16697a;
     border-radius: .3rem;  
   }
+
+  /* logo styling */
+.logo{
+    font-size: xx-large;
+    font-family: 'Original Surfer', cursive;
+    color:#ffa62b;
+}
+
+/* font-family: 'Hachi Maru Pop', cursive;
+font-family: 'Lexend', sans-serif;
+
+font-family: 'Neucha', cursive;
+font-family: 'Original Surfer', cursive;
+font-family: 'Potta One', cursive;
+font-family: 'Train One', cursive; */
