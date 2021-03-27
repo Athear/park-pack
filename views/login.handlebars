@@ -1,0 +1,20 @@
+{{!-- login view --}}
+<h2>Login!</h2>
+<form class="form login-form">
+    <div class="mb-3 form-group">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
+    </div>
+    <div class="mb-3 form-group">
+        <label for="InputPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password-login">
+    </div>
+    <div class="d-grid gap-2 mb-2 form-group">
+        <button type="submit" class="btn btn-secondary">Login!</button>
+    </div>
+    <a id="sign-up-link" href="/profiles" onclick="changeView()">Sign up instead</a>
+</form>
+
+
+
+<script src="./js/login.js"></script>
