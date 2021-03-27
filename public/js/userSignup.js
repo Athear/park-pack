@@ -1,4 +1,4 @@
-const signupFormHandler = async (event) => {
+const userSignupFormHandler = async (event) => {
     event.preventDefault();
   
     const firstName = document.querySelector('#firstName').value.trim();
@@ -14,19 +14,19 @@ const signupFormHandler = async (event) => {
     const distance = document.querySelector('#distanceRange').value.trim();
 
     if (firstName && lastName && email && password && zipcode && distance) {
-      const response = await fetch('/api/users/signup', {
+      const response = await fetch('/api/users/userProfile', {
         method: 'POST',
         body: JSON.stringify({ firstName, lastName, email, password, zipcode, distance }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/parentProfile');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
     }
   };
 document
-  .querySelector('')
-  .addEventListener('submit', signupFormHandler);
+  .querySelector('#userSubmit')
+  .addEventListener('click', userSignupFormHandler);

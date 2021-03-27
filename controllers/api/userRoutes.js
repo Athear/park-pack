@@ -12,7 +12,10 @@ router.post("/userProfile", async (req, res) => {
       const user = new User({
         name: req.body.name,
         email: req.body.email,
-        password: hash,
+        zip: req.body.zip,
+        // gender: req.body.gender,
+        // genPref: req.body.
+        password: hash
         // continue adding user values to save
       });
       user.save().then((result) => {
