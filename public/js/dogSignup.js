@@ -5,8 +5,12 @@ const dogSignupFormHandler = async (event) => {
     const age = document.querySelector('#age').value.trim();
     const breed = document.querySelector('#breed').value.trim();
     const weight = document.querySelector('#weight').value.trim();
-    const gender= $("input[name='dogGender']:checked").val();
-    const fixed= $("input[name='fixed']:checked").val();
+    
+
+    const gender= document.getElementsByName('dogGender').val();
+
+    const fixed= document.getElementsByName('fixed').val();
+    
     const energy = document.querySelector('#energyRange').value.trim();
 
     if (name && age && breed && weight && gender && fixed && energy) {
