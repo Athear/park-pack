@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-
 //test in postman with POST http://localhost:3001/api/users/userprofile
 
 router.post("/userprofile", async (req, res) => {
@@ -16,7 +15,7 @@ router.post("/userprofile", async (req, res) => {
         name: req.body.name,
         email: req.body.email,
         zip: req.body.zip,
-        password: hash
+        password: hash,
         // continue adding user values to save
       });
       user.save().then((result) => {
@@ -27,11 +26,9 @@ router.post("/userprofile", async (req, res) => {
       });
     }
   } catch (err) {
-    console.log("create user FAILED"),
-    res.status(400).json(err);
+    console.log("create user FAILED"), res.status(400).json(err);
   }
 });
-
 
 router.post("/login", async (req, res) => {
   try {
