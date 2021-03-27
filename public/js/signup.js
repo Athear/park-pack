@@ -1,14 +1,18 @@
 const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#firstName').value.trim();
+    const firstName = document.querySelector('#firstName').value.trim();
+    const lastName = document.querySelector('#lastName').value.trim();
     const email = document.querySelector('#email').value.trim();
+    // const gender = document.querySelector('#email').value.trim();
     const password = document.querySelector('#password').value.trim();
-  
-    if (name && email && password) {
+    const zipcode = document.querySelector('#zip').value.trim();
+    const distance = document.querySelector('#distanceRange').value.trim();
+
+    if (firstName && lastName && email && password && zipcode && distance) {
       const response = await fetch('/api/users/signup', {
         method: 'POST',
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ firstName, lastName, email, password, zipcode, distance }),
         headers: { 'Content-Type': 'application/json' },
       });
   
