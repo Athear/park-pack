@@ -5,6 +5,7 @@ const { User } = require("../../models");
 //test in postman with POST http://localhost:3001/api/users/userprofile
 
 router.post("/userprofile", async (req, res) => {
+  console.log("Incoming: user data: \n", req.body)
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -13,10 +14,11 @@ router.post("/userprofile", async (req, res) => {
       return;
     } else if (!userData) {
       const user = new User({
-        name: req.body.name,
+        first_name: req.body.firstName,
+        last_name: req.body.lastName,
         email: req.body.email,
-        zip: req.body.zip,
-        password: hash
+        zip: req.body.zipcode,
+        password: req.body.password
         // continue adding user values to save
       });
       user.save().then((result) => {
@@ -27,7 +29,7 @@ router.post("/userprofile", async (req, res) => {
       });
     }
   } catch (err) {
-    console.log("create user FAILED"),
+    console.log(" XXXXXX ANGRY FACE >:[     create user FAILED", err)
     res.status(400).json(err);
   }
 });
