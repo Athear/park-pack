@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User, Dog, Friends } = require("../models");
-const withAuth = require("../utils/auth");
+const { withAuth } = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
@@ -43,21 +43,20 @@ router.get("/mypack", withAuth, async (req, res) => {
     const userData = await User.findbyPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [
-        { 
-          model: Dog
+        {
+          model: Dog,
         },
         {
-          model: Friends
-        }
+          model: Friends,
+        },
       ],
     });
 
-    const user = userData.get({plain: true });
+    const user = userData.get({ plain: true });
     res.render("mypack", {
       ...user,
       logged_in: true,
     });
-
   } catch (err) {
     res.status(500).json(err);
   }
@@ -81,7 +80,5 @@ router.get("/mypack", withAuth, async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
-
-
 
 module.exports = router;
