@@ -8,7 +8,10 @@ const userSignupFormHandler = async (event) => {
     // const gender = document.querySelector('#gender').value;
     // const genderpref = document.getElementById("genderPref").value;
     // const gender = document.querySelector('#email').value.trim();
+<<<<<<< Updated upstream
     // const gender= $("input[name='gender']:checked").val();
+=======
+>>>>>>> Stashed changes
     const password = document.querySelector('#password').value.trim();
     const zipcode = document.querySelector('#zip').value.trim();
     // const distance = document.querySelector('#distanceRange').value.trim();

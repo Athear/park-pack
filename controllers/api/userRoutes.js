@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-
 //test in postman with POST http://localhost:3001/api/users/userprofile
 
 router.post("/userprofile", async (req, res) => {
@@ -29,11 +28,10 @@ router.post("/userprofile", async (req, res) => {
       });
     }
   } catch (err) {
-    console.log(" XXXXXX ANGRY FACE >:[     create user FAILED", err)
+    console.log("create user FAILED", err)
     res.status(400).json(err);
   }
 });
-
 
 router.post("/login", async (req, res) => {
   try {
