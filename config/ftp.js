@@ -7,7 +7,7 @@ const options = {
     password: process.env.FTP_PASS,
     port: process.env.FTP_PORT,
     secure: false
-}
+};
 
 const initialize = async () =>{
     const client = new Client();
@@ -15,6 +15,29 @@ const initialize = async () =>{
     console.log('ftp connnected')
 
     return client;
+};
+
+Client.prototype.chdir = function (path){
+    return new Promise((resolve,reject)=>{
+        this.cwd(path,(err,currentDir)=>{
+            if (err){
+                if(err.message.includes('No such file or directory')){
+                    this.mkdir(path,(err)=>{
+                        if (err) throw err
+                        this.cwd(path,(err,currentDir)=>{
+                            if (err) throw err
+                            resolve('Created and entered directory '+path)
+                        });
+                    })
+                }else{
+                    reject(new Error(err));
+                }
+            }
+            else{
+                resolve('Entered directory '+path)
+            }
+        })
+    })
 }
 
 module.exports = {initialize};
