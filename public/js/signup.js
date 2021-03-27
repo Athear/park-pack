@@ -5,10 +5,11 @@ const signupFormHandler = async (event) => {
     const lastName = document.querySelector('#lastName').value.trim();
     const email = document.querySelector('#email').value.trim();
     // const gender = document.querySelector('#email').value.trim();
-<<<<<<< Updated upstream
+
     // const gender= $("input[name='gender']:checked").val();
-=======
->>>>>>> Stashed changes
+
+    // const gender= $("input[name='gender']:checked").val();
+
     const password = document.querySelector('#password').value.trim();
     const zipcode = document.querySelector('#zip').value.trim();
     const distance = document.querySelector('#distanceRange').value.trim();
