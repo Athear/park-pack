@@ -52,7 +52,6 @@ router.post('/dogprofile', apiAuth, async (req, res) => {
       energy: req.body.energy,
       user_id: req.session.user_id,
     });
-
     res.status(200).json(newDog);
   } catch (err) {
     res.status(400).json(err);
