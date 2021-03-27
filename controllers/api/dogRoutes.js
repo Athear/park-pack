@@ -54,6 +54,7 @@ router.post('/dogprofile', apiAuth, async (req, res) => {
     });
     res.status(200).json(newDog);
   } catch (err) {
+    console.log("create dog profile FAILED"),
     res.status(400).json(err);
   }
 });
