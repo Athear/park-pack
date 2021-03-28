@@ -10,6 +10,8 @@ const userSignupFormHandler = async (event) => {
 
     const password = document.querySelector('#password').value.trim();
     const zipcode = document.querySelector('#zip').value.trim();
+    // const userName = document.querySelector("#userName").value();
+    
     // const distance = document.querySelector('#distanceRange').value.trim();
 
     if (firstName && lastName && email && password && zipcode) {
@@ -29,6 +31,47 @@ const userSignupFormHandler = async (event) => {
       }
     }
   };
+
 document
   .querySelector('#userSubmit')
   .addEventListener('click', userSignupFormHandler);
+
+//email set to username 
+
+$(function() {
+  var emailAdd = $('#email');
+  emailAdd.change(function() {
+      $('#userName').val(emailAdd.val());
+  });
+});
+
+  //gender pref modal vanilla javascript 
+
+//   const friendModalActive = () => {
+//     const friendInfo = document.querySelector(".infoAlert");
+//     friendInfo.classList.add("is-active");
+//     console.log("modal active");
+//   }
+//     document
+//     .querySelector('#friendPrefInfo')
+//     .addEventListener('click', friendModalActive)
+
+// const friendModalInActive = () => {
+//   const friendInfoClose = document.querySelector(".infoAlert");
+//   friendInfoClose.classList.removeClass("is-active");
+//   console.log("modal inactive");
+// }
+//   document
+//     .querySelector('.modal-close')
+//     .addEventListener('click', friendModalInActive)
+
+  
+   //gender pref modal jquery
+   $(document).on("click", "#friendPrefInfo", function () {
+    $(".infoAlert").addClass("is-active");
+
+    $(".modal-close").click(function () {
+        $(".infoAlert").removeClass("is-active");
+
+    });;
+})

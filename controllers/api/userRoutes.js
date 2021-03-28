@@ -4,7 +4,7 @@ const { User } = require("../../models");
 //test in postman with POST http://localhost:3001/api/users/userprofile
 
 router.post("/userprofile", async (req, res) => {
-  console.log("Incoming: user data: \n", req.body)
+  console.log("Incoming: user data: \n", req.body);
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -17,7 +17,7 @@ router.post("/userprofile", async (req, res) => {
         last_name: req.body.lastName,
         email: req.body.email,
         zip: req.body.zipcode,
-        password: req.body.password
+        password: req.body.password,
         // continue adding user values to save
       });
       user.save().then((result) => {
@@ -28,7 +28,7 @@ router.post("/userprofile", async (req, res) => {
       });
     }
   } catch (err) {
-    console.log("create user FAILED", err)
+    console.log("create user FAILED", err);
     res.status(400).json(err);
   }
 });
@@ -43,7 +43,10 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password, please try again" });
       return;
     }
-
+    console.log(
+      "@@ madeit to userroutes userdata @@",
+      userData
+    );
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -59,6 +62,11 @@ router.post("/login", async (req, res) => {
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
+    console.log(
+      "@@ madeit to userroutes login @@",
+      req.session.user_id,
+      req.session.logged_in
+    );
   } catch (err) {
     res.status(400).json(err);
   }

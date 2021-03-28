@@ -1,72 +1,102 @@
-<h2>Create Parent Profile</h2>
+<h2 style="text-align: center">Create Your Parent Profile</h2>
+</br>
+<main>
+    <form class="form userProfileForm">
+        <div class="row">
+            <div class="form-group col-sm">
+                <label>First Name:</label>
+                <input class="form-control cl" type="text" id="firstName" />
+            </div>
+            <div class="form-group col-sm">
+                <label>Last Name:</label>
+                <input class="form-control" type="text" id="lastName" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm">
+                <label>Email:</label>
+                <input class="form-control" type="email" id="email" />
+            </div>
+            <div class="form-group col-sm">
+                <label>Zip Code:</label>
+                <input class="form-control" type="number" id="zip" />
+            </div>
+        </div>
 
-<form class=" form userProfileForm">
-    <div class="form-group">
-        <label>First Name:</label>
-        <input class="form-input" type="text" id="firstName" />
-    </div>
-    <div class="form-group">
-        <label>Last Name:</label>
-        <input class="form-input" type="text" id="lastName" />
-    </div>
-    <div class="form-group">
-        <label>Email:</label>
-        <input class="form-input" type="email" id="email" />
-    </div>
-    <div class="form-group">
-        <label>Gender Identity:</label>
-        </br>
-        <input type="radio" name="gender" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" name="gender" value="female">
-        <label for="fem">Female</label><br>
-        <input type="radio" name="gender" value="non-binary">
-        <label for="nonbi">Non-binary</label>
-    </div>
-    <div class="form-group">
-        <label>Friend Preference:</label>
-        </br>
-        <input type="radio" id="maleFriend" name="genderPref" value="male">
-        <label for="male">Male</label><br>
-        <input type="radio" id="femaleFriend" name="genderPref" value="female">
-        <label for="female">Female</label><br>
-        <input type="radio" id="bothFriend" name="genderPref" value="both">
-        <label for="other">No Preference</label>
-    </div>
-    <div class="form-group">
-        <label>Zip Code:</label>
-        <input class="form-input" type="number" id="zip" />
-    </div>
-    <!-- Slider resource https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
-    <div class="slidecontainer form-group">
-        <label>Max Distance Willing to Travel:</label>
-        <input type="range" min="1" max="5" value="3" class="slider" id="energyLevel">
-        </br>
-        <small id="distanceRange" class="form-text text-muted">10 20 30 40 50+</small>
-    </div>
-    </div>
-    <div class="form-group">
-        <label>User Name:</label>
-        <input class="form-input" type="text" id="userName" placeholder="default email from ^^" />
-    </div>
-    <div class="form-group">
-        <label>Password:</label>
-        <input class="form-input" type="password" id="password" />
-    </div>
-    <!-- <div class="form-group">
+        <div class="row">
+            <div class="form-group col-sm">
+                <label>Gender Identity:</label>
+                </br>
+                <input type="radio" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" name="gender" value="female">
+                <label for="fem">Female</label><br>
+                <input type="radio" name="gender" value="non-binary">
+                <label for="nonbi">Non-binary</label>
+            </div>
+            <div class="form-group col-sm">
+                <label>Friend Preference <i class="fa fa-question-circle" id="friendPrefInfo"></i></label>
+                </br>
+                <input type="radio" id="maleFriend" name="genderPref" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="femaleFriend" name="genderPref" value="female">
+                <label for="female">Female</label><br>
+                <input type="radio" id="bothFriend" name="genderPref" value="both">
+                <label for="other">No Preference</label>
+            </div>
+        </div>
+
+        <!-- Slider resource https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
+        {{!-- <div class="slidecontainer form-group">
+            <label>Max Distance Willing to Travel:</label>
+            <input type="range" min="1" max="5" value="3" class="slider" id="energyLevel">
+            </br>
+            <small id="distanceRange" class="form-text text-muted">10 20 30 40 50+</small>
+        </div> --}}
+        <div class="row">
+            <div class="form-group col-sm">
+                <label>User Name:</label>
+                <input class="form-control" type="text" id="userName" />
+            </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm">
+                    <label>Password:</label>
+                    <input class="form-control" type="password" id="password" />
+                </div>
+            </div>
+            <!-- <div class="form-group">
             <label>Confirm Password:</label>
-            <input class="form-input" type="password" id="confirmpassword" />
+            <input class="form-control" type="password" id="confirmpassword" />
         </div> -->
-    <button class="btn btn-warning" id="userSubmit">Create My Profile!</button>
+        </div>
+        </br>   
+        <div class = "row">
+        <div class="form-group col-sm" style = "text-align: center">
+            <button class= "btn btn-action btn-lg" id= "userSubmit">Submit   <i class="fas fa-paw"></i></button>
+        </div>
+        </div>
+    </form>
+</main>
+
+{{!-- Save user data, and log them in so they can create a dog profile(or 2!)--}}
+
+
+<!--Modal for info button-->
+<div id="Modal" class="modal infoAlert">
+    <div class="modal-background">
+        <div class="modal-card">
+            <div class="modal-card-body">
+
+                <h1>We will only match you with friends of this gender.</h1>
+                <button class="modal-close is-large"></button>
+            </div>
+
+        </div>
+
     </div>
+</div>
 
-
-
-    {{!-- Save user data, and log them in so they can create a dog profile(or 2!)--}}
-
-
-
-   
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{{!-- JS --}}
 <script src="./js/userSignup.js"></script>
-
