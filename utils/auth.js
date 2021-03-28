@@ -7,7 +7,7 @@ const withAuth = (req, res, next) => {
   };
   const apiAuth = (req, res, next) => {
     if (!req.session.logged_in) {
-      return res.status(401);
+      res.status(401).send('Unauthorized access to api');
     } else {
       next();
     }

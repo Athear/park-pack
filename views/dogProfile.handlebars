@@ -1,124 +1,55 @@
-
-
- <h2>Create Parent Profile</h2>
-
-    <form class=" form dogProfileForm">
-        <div class="form-group">
-            <label>First Name:</label>
-            <input class="form-input" type="text" id="firstName" />
-        </div>
-        <div class="form-group">
-            <label>Last Name:</label>
-            <input class="form-input" type="text" id="lastName" />
-        </div>
-        <div class="form-group">
-            <label>Email:</label>
-            <input class="form-input" type="email" id="email" />
-        </div>
-        <div class="form-group">
-            <label>Gender Identity:</label>
-        </br>
-            <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Male</label><br>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label><br>
-            <input type="radio" id="both" name="gender" value="both">
-            <label for="other">Non-binary</label>
-        </div>
-           <div class="form-group">
-            <label>Friend Preference:</label>
-           </br>
-            <input type="radio" id="male" name="gender" value="male">
-  <label for="male">Male</label><br>
-  <input type="radio" id="female" name="gender" value="female">
-  <label for="female">Female</label><br>
-  <input type="radio" id="both" name="gender" value="both">
-  <label for="other">No Preference</label>
-        </div>
-        <div class="form-group">
-            <label>Zip Code:</label>
-            <input class="form-input" type="number" id="zip" />
-        </div>
-        <!-- Slider resource https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
-        <div class="slidecontainer form-group">
-            <label>Max Distance Willing to Travel:</label>
-            <input type="range" min="1" max="5" value="3" class="slider" id="energyLevel">
-            </br>
-            <small id="distanceRange" class="form-text text-muted">10 20 30 40 50+</small>
-        </div>
-        </div>
-        <div class="form-group">
-            <label>User Name:</label>
-            <input class="form-input" type="text" id="lastName" placeholder="default email from ^^"/>
-        </div>
-        <div class="form-group">
-            <label>Password:</label>
-            <input class="form-input" type="password" id="password" />
-        </div>
-        <!-- <div class="form-group">
-            <label>Confirm Password:</label>
-            <input class="form-input" type="password" id="confirmpassword" />
-        </div> -->
-<button class="btn btn-warning">Create My Profile!</button>
-        </div>
-
-{{!-- Save user data, and log them in so they can create a dog profile(or 2!)--}}
->>>>>>> Stashed changes:views/profiles.handlebars
-=======
->>>>>>> a430396f365fcc560fe39b864cf1c166fbb8d3e3
-
-<h2>Create Doggy Profile</h2>
+<h2 style = "text-align: center">Create Doggy Profile</h2>
  
     <form class=" form dogProfileForm">
         <div class="form-group">
             <label>Name:</label>
-            <input class="form-input" type="text" id="dogName" />
+            <input class="form-control" type="text" id="dogName" />
         </div>
-        <div class="form-group">
+        <div class = "row">
+        <div class="form-group col-sm">
             <label>Gender:</label>
+            </br>
             <input class="form-input" type="checkbox" name = "dogGender" value="m">
             <label for="male">Male</label>
             <input class="form-input" type="checkbox" name = "dogGender" value="f">
             <label for="female">Female</label>
         </div>
-        <div class="form-group">
-            <label>Breed:</label>
-            <input class="form-input" type="text" id="breed" />
-        </div>
-        <div class="form-group">
-            <label>Age:</label>
-            <input class="form-input" type="number" id="age" placeholder="yrs" />
-        </div>
-        <div class="form-group">
-            <label>Weight:</label>
-            <input class="form-input" type="number" id="breed" placeholder=" lbs" />
-        </div>
-        <div class="form-group">
+        <div class="form-group col-sm">
             <label>Spayed/Neutered:</label>
+            </br>
             <input class="form-input" type="checkbox" name="fixed" value="yes">
             <label for="yes">Yes</label>
             <input class="form-input" type="checkbox" name ="fixed" value="no">
             <label for="no"> No </label>
         </div>
-        {{!-- <div class="form-group">
-            <label for="exampleFormControlSelect1">Energy Level</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div> --}}
+        </div>
+    
+        <div class="form-group">
+            <label>Breed:</label>
+            <input class="form-control" type="text" id="breed" />
+        </div>
+        <div class = "row">
+        <div class="form-group col-sm">
+            <label>Age:</label>
+            <input class="form-control" type="number" id="age" placeholder="yrs" />
+        </div>
+        <div class="form-group col-sm">
+            <label>Weight:</label>
+            <input class="form-control" type="number" id="weight" placeholder=" lbs" />
+        </div>
+        </div>
         <!-- Slider resource https://www.w3schools.com/howto/howto_js_rangeslider.asp -->
         <div class="slidecontainer form-group">
-            <label>Energy Level</label>
+            <label>Energy Level: <span id= "energy"></span></label>
             <input type="range" min="1" max="5" value="3" class="slider" id="energyLevel">
-            <small id="energyRange" class="form-text text-muted">1 2 3 4 5</small>
+            {{!-- <small id="energyRange" class="form-text text-muted">1 2 3 4 5</small> --}}
         </div>
         </div>
-       <div class="form-group">
-            <label><h5>Activities:</h5></label>
+        </br>
+        <p id = 'mainAct'>Activities:</p>
+       <div class="activities form-group">
+            {{!-- <label id = "mainAct">Activities:</label>
+            </br> --}}
             <input class="form-input" type="checkbox" id="hiking" value="hike">
             <label for="male">Hiking</label>
             <input class="form-input" type="checkbox" id="walk" value="walk">
@@ -137,11 +68,16 @@
             <label for="walk">Child friendly</label>
                
         </div>
-<button class="btn btn-warning" id = "dogSubmit">Create Dog Profile! </button>
+        </br>
+        <div class = "row">
+            <div class = "form-group col-sm" style = "text-align: center">
+<button class="btn btn-action btn-large" id = "dogSubmit">Submit   <i class="fas fa-paw"></i></button>
         </div>
+        </div>
+        </div>
+</form>
 
 
-
-
-<script src="/public/js/dogSignup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/dogSignup.js"></script>
 

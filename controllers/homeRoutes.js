@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// gets and renders sign-in page for userprofile
 router.get("/userprofile", async (req, res) => {
   try {
     // console.log(res);
@@ -20,6 +21,7 @@ router.get("/userprofile", async (req, res) => {
   }
 });
 
+//gets and renders signin page for dogprofile
 router.get("/dogprofile", async (req, res) => {
   try {
     // console.log(res);
@@ -29,15 +31,37 @@ router.get("/dogprofile", async (req, res) => {
   }
 });
 
+//gets login page, redirects to dashboard upon log-in
 router.get("/login", (req, res) => {
+  console.log("@@logged in at /login homeroute?@@", req.session.logged_in);
   if (req.session.logged_in) {
-    res.redirect("dogProfile");
+    res.redirect("/dashboard");
+    //change this to userprofile?
     return;
   }
-
   res.render("login");
 });
 
+//get and render dashboard
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    const dogData = await Dog.findAll({
+      // include: [{model: User}]
+      //how to exclude user password from this get?
+    });
+    console.log("@@you hit dashboard route!@@");
+    const dogs = dogData.map((profile) => profile.get({ plain: true }));
+    console.log("@@here's the dog data@@", dogs);
+    res.render("dashboard", {
+      dogs,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//get and render mypack page
 router.get("/mypack", withAuth, async (req, res) => {
   try {
     const userData = await User.findbyPk(req.session.user_id, {
@@ -51,7 +75,6 @@ router.get("/mypack", withAuth, async (req, res) => {
         },
       ],
     });
-
     const user = userData.get({ plain: true });
     res.render("mypack", {
       ...user,
@@ -61,7 +84,7 @@ router.get("/mypack", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get("/chat",withAuth, async (req, res) => {
+router.get("/chat", withAuth, async (req, res) => {
   try {
     res.render("chat");
   } catch (err) {
