@@ -27,6 +27,7 @@
     "express-session": "^1.17.1",
     "ftp": "^0.3.10",
     "mysql2": "^2.2.5",
+    "path": "^0.12.7",
     "sequelize": "^6.5.1",
     "socket.io": "^4.0.0"
   }

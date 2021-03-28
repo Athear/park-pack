@@ -86,17 +86,20 @@ router.get("/mypack", withAuth, async (req, res) => {
 });
 router.get("/chat", withAuth, async (req, res) => {
   try {
-    console.log(res);
     res.render("chat");
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get("/chatroom", withAuth, async (req, res) => {
+router.get("/chatroom/:room",withAuth, async (req, res) => {
+  console.log(req.params);
   try {
-    console.log(res);
-    res.render("chatroom");
+    res.render("chatroom", {
+      name: req.params.room,
+
+      //add in key value pair for messages from the room
+    });
   } catch (err) {
     res.status(500).json(err);
   }

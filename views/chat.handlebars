@@ -3,17 +3,17 @@
         <h1><i class="fas fa-dog"></i> ParkPack Chat</h1>
     </header>
     <main class="join-main">
-        <form action="chat.html">
-            <div class="form-control">
+        <form id="choose-chat">
+            {{!-- <div class="form-control">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" placeholder="Enter username..." required />
-            </div>
+            </div> --}}
             <div class="form-control">
                 <label for="room">Room</label>
                 <select name="room" id="room">
-                    <option value="Big Doggos">Big Doggos</option>
-                    <option value="Small Doggos">Small Doggos</option>
-                    <option value="Size Don't matter">Size Don't matter</option>
+                    <option value="Big-Doggos">Big Doggos</option>
+                    <option value="Small-Doggos">Small Doggos</option>
+                    <option value="Any-Size-Doggos">Size Don't matter</option>
                     <!-- <option value="DogParks">Doggo Parks</option>
 							<option value="scenicWalks">Scenic Walks</option>
 							<option value="hikingTrails">Hiking, yo!</option> -->
@@ -23,4 +23,5 @@
         </form>
     </main>
 </div>
-<script src="../public/js/chat.js"></script>
+
+<script src="/js/chat.js"></script>

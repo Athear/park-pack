@@ -55,11 +55,12 @@ router.post("/login", async (req, res) => {
         .json({ message: "Incorrect email or password, please try again" });
       return;
     }
-
+    console.log(userData);
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-
+      req.session.first_name = userData.first_name
+      console.log(req.session);
       res.json({ user: userData, message: "You are now logged in!" });
     });
     console.log(
@@ -92,7 +93,7 @@ router.get("/user_data", (req, res) => {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       id: req.session.user_id,
-      name: req.session.name,
+      name: req.session.first_name,
     });
   }
 });
