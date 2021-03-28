@@ -1,36 +1,45 @@
-<h2>Create Doggy Profile</h2>
+<h2 style = "text-align: center">Create Doggy Profile</h2>
  
     <form class=" form dogProfileForm">
         <div class="form-group">
             <label>Name:</label>
             <input class="form-control" type="text" id="dogName" />
         </div>
-        <div class="form-group">
+        <div class = "row">
+        <div class="form-group col-sm">
             <label>Gender:</label>
+            </br>
             <input class="form-input" type="checkbox" name = "dogGender" value="m">
             <label for="male">Male</label>
             <input class="form-input" type="checkbox" name = "dogGender" value="f">
             <label for="female">Female</label>
         </div>
-        <div class="form-group">
-            <label>Breed:</label>
-            <input class="form-control" type="text" id="breed" />
-        </div>
-        <div class="form-group">
-            <label>Age:</label>
-            <input class="form-control" type="number" id="age" placeholder="yrs" />
-        </div>
-        <div class="form-group">
-            <label>Weight:</label>
-            <input class="form-control" type="number" id="weight" placeholder=" lbs" />
-        </div>
-        <div class="form-group">
+        <div class="form-group col-sm">
             <label>Spayed/Neutered:</label>
+            </br>
             <input class="form-input" type="checkbox" name="fixed" value="yes">
             <label for="yes">Yes</label>
             <input class="form-input" type="checkbox" name ="fixed" value="no">
             <label for="no"> No </label>
         </div>
+        </div>
+    
+        <div class="form-group">
+            <label>Breed:</label>
+            <input class="form-control" type="text" id="breed" />
+        </div>
+        <div class = "row">
+        <div class="form-group col-sm">
+            <label>Age:</label>
+            <input class="form-control" type="number" id="age" placeholder="yrs" />
+        </div>
+        <div class="form-group col-sm">
+            <label>Weight:</label>
+            <input class="form-control" type="number" id="weight" placeholder=" lbs" />
+        </div>
+        </div>
+          
+        
         {{!-- <div class="form-group">
             <label for="exampleFormControlSelect1">Energy Level</label>
             <select class="form-control" id="exampleFormControlSelect1">
@@ -45,11 +54,14 @@
         <div class="slidecontainer form-group">
             <label>Energy Level</label>
             <input type="range" min="1" max="5" value="3" class="slider" id="energyLevel">
-            <small id="energyRange" class="form-text text-muted">1 2 3 4 5</small>
+            {{!-- <small id="energyRange" class="form-text text-muted">1 2 3 4 5</small> --}}
         </div>
         </div>
-       <div class="form-group">
-            <label><h5>Activities:</h5></label>
+        </br>
+        <p id = 'mainAct'>Activities:</p>
+       <div class="activities form-group">
+            {{!-- <label id = "mainAct">Activities:</label>
+            </br> --}}
             <input class="form-input" type="checkbox" id="hiking" value="hike">
             <label for="male">Hiking</label>
             <input class="form-input" type="checkbox" id="walk" value="walk">
@@ -68,9 +80,14 @@
             <label for="walk">Child friendly</label>
                
         </div>
-<button class="btn btn-action" id = "dogSubmit">Create Dog Profile! </button>
+        </br>
+        <div class = "row">
+            <div class = "form-group col-sm" style = "text-align: center">
+<button class="btn btn-action" id = "dogSubmit">Submit   <i class="fas fa-paw"></i></button>
         </div>
-
+        </div>
+        </div>
+</form>
 
 
 

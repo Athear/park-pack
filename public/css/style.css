@@ -18,8 +18,17 @@ body{
 h2, label {
     color:#16697a;
     font-family: 'Lexend';
+    margin-top: 7%;
+    
 }
-
+#mainAct {
+  color:#16697a;
+  font-family: 'Lexend';
+  margin-top: 2%;
+  
+ 
+}
+}
 .form-group{
     margin-bottom: 2%;
     margin-left: 5%;
@@ -67,6 +76,25 @@ color: #ffa62b
     font-family: 'Original Surfer', cursive;
     color:#ffa62b;
 }
+
+.form {
+  font-size: x-large;
+}
+
+.activities {
+  font-size: x-large;
+background-color: #ffffff;
+padding: 2%;
+text-align: center;
+}
+
+#mainAct {
+  background-color:#ede7e3 ;
+}
+
+
+
+
 
 /* font-family: 'Hachi Maru Pop', cursive;
 font-family: 'Lexend', sans-serif;
