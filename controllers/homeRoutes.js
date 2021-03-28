@@ -50,10 +50,10 @@ router.get("/dashboard", withAuth, async (req, res) => {
       //how to exclude user password from this get?
     });
     console.log("@@you hit dashboard route!@@");
-    const dogProfiles = dogData.map((profile) => profile.get({ plain: true }));
-    console.log("@@here's the dog data@@", dogProfiles);
+    const dogs = dogData.map((profile) => profile.get({ plain: true }));
+    console.log("@@here's the dog data@@", dogs);
     res.render("dashboard", {
-      dogProfiles,
+      dogs,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
