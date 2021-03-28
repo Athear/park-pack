@@ -10,53 +10,52 @@ App name:
 Headers & body text: font-family: 'Lexend', sans-serif;
 
 */
+body{
+  background-color: #ede7e3
+  ;
+}
 
-
-h2 {
-    color:rebeccapurple;
+h2, label {
+    color:#16697a;
+    font-family: 'Lexend';
 }
 
 .form-group{
     margin-bottom: 2%;
     margin-left: 5%;
 }
-/* navbar stylings */
-.sidenav {
-    height: 100%;
-    width: 150px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  .sidenav a {
-    padding: 6px 6px 6px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  .main {
-    margin-left: 150px; /* Same as the width of the sidenav */
-  }
-  
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
 
+.btn-action{
+  background-color: #ffa62b;
+}
+
+/* offcanvas stylings */
+.fa-bone{
+  color:#16697a
+}
+
+.nav-link{
+  color: #ede7e3
+}
+
+.nav-link:hover {
+color: #ffa62b
+}
+
+.fa-2x{
+  color:#ffa62b
+}
+
+.offcanvas-style{
+  /* background-color:#16697a; */
+  background-color: #489fb5f6;
+  
+}
+
+  
   /* jumbotron styling */
   .jumbotron {
-    padding: 2rem;
+    padding: 2rem 2rem 3rem 2rem;
     /* background-color: #1d3557; */
     background-color: #16697a;
     border-radius: .3rem;  
