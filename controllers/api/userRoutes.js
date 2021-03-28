@@ -17,7 +17,7 @@ router.post("/userprofile", async (req, res) => {
         last_name: req.body.lastName,
         email: req.body.email,
         zip: req.body.zipcode,
-        password: req.body.password,
+        password: req.body.password
         // continue adding user values to save
       });
       user.save().then((result) => {
@@ -28,7 +28,8 @@ router.post("/userprofile", async (req, res) => {
       });
     }
   } catch (err) {
-    console.log("create user FAILED"), res.status(400).json(err);
+    console.log("create user FAILED", err)
+    res.status(400).json(err);
   }
 });
 

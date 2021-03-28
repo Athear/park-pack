@@ -9,6 +9,7 @@ const dogSignupFormHandler = async (event) => {
     // const fixed= document.getElementsByName('fixed').val();
     const energy = document.querySelector('#energyRange').value;
 
+
     // console.log("gender is " + gender + "and fixed is " + fixed)
 
     if (name && age && breed && weight && energy) {
