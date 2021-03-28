@@ -1,8 +1,8 @@
 <div class="card mb-3" style="max-width: 540px;" data-id={{id}}>
     <div class="row g-0">
         <div class="col-md-4">
-            {{#if dog.pic}}
-            <img src="{{dog.pic}}" alt="Puppy Profile Pic">
+            {{#if pic}}
+            <img src="{{pic}}" alt="Puppy Profile Pic">
             {{else}}
             <img src="./images/icons/noun_Dog_1539664_sm.png" alt="Park Pack icon">
             {{/if}}
@@ -10,18 +10,24 @@
 
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">{{dog.name}}</h5>
-                <ul class="card-text">
-                    <li>{{dog.gender}}</li>
-                    <li>{{dog.fixed}}</li>
-                    <li>{{dog.age}}</li>
-                    <li>{{dog.weight}}</li>
-                    <li>{{dog.breed}}</li>
-                    <li>{{dog.energy}}</li>
-                    <li>{{dog.activity}}</li>
-
-                </ul>
-
+                <h5 class="card-title">{{name}}</h5>
+                <div class="mb-3 form-group">
+                    <ul class="card-text list-unstyled">
+                        <li>Gender: {{gender}}</li>
+                        <li>Fixed: {{fixed}}</li>
+                        <li>Age: {{age}}</li>
+                        <li>Weight: {{weight}}</li>
+                        <li>Breed: {{breed}}</li>
+                        <li>Energy Level: {{energy}}</li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-action" id="addpack">Add to My Pack</button>
+                     {{!-- <button type="submit" class="btn btn-action">Login!</button> --}}
+                </div>
+                <div class="form-group">
+                   
+                </div>
             </div>
         </div>
     </div>
