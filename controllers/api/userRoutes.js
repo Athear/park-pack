@@ -12,16 +12,21 @@ router.post("/userprofile", async (req, res) => {
       res.status(400).json({ message: "Email already exists in our system" });
       return;
     } else if (!userData) {
+
+      
       const user = new User({
         first_name: req.body.firstName,
         last_name: req.body.lastName,
         email: req.body.email,
         zip: req.body.zipcode,
         password: req.body.password,
+       
         // continue adding user values to save
       });
       user.save().then((result) => {
         console.log(result);
+        req.session.logged_in = true;
+        console.log("user is authorized");
         res.status(200).json({
           message: "User created",
         });
