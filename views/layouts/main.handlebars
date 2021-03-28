@@ -21,18 +21,18 @@
   <header>
     <!-- start offcanvas navbar-->
     <div class="jumbotron">
-      <button class="btn btn-navmenu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-        aria-controls="offcanvasScrolling"><i class="fas fa-bone fa-spin"></i> </button>
-      <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <button class="btn btn-action" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+        aria-controls="offcanvasScrolling"><i class="fas fa-bone"></i> </button>
+      <div class="offcanvas offcanvas-start offcanvas-style" data-bs-scroll="true" data-bs-backdrop="false"
+        tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
           <ul class="navbar-nav">
-            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-            <li class="nav-item"><a href="/login" class="nav-link">Login/Sign-up</a></li>
+            <li class="nav-item"><a href="/" class="nav-link"><i class="fas fa-home fa-2x mx-3"></i>Home</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link"><i class="fas fa-paw fa-2x mx-3"></i>Login/Sign-up</a></li>
             {{#if logged_in}}
-            <li class="nav-item"><a href="#" class="nav-link">My Pack</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Profile</a></li>
-            <li class="nav-item" id="logout"><a href="#" class="nav-link">Logout</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-heart fa-2x mx-3"></i>My Pack</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-dog fa-2x mx-3"></i>Profile</a></li>
+            <li class="nav-item" id="logout"><a href="#" class="nav-link"><i class="fas fa-sign-out-alt fa-2x mx-3"></i>Logout</a></li>
             {{/if}}
           </ul>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -41,7 +41,7 @@
       {{!-- end of offcanvas navbar --}}
       <div class="position-relative">
         <h1 class="logo position-absolute top-50 start-50 translate-middle">Park Pack<span><img
-              src="./images/icons/noun_Dog_1539664_sm.png" alt="dog face icon"></span></h1>
+              src="./images/icons/noun_Dog_1539664_sm.png" alt="dog face icon" class="ms-3"></span></h1>
 
       </div>
     </div>
