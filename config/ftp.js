@@ -1,4 +1,5 @@
-const Client = require("ftp")
+const Client = require("ftp");
+const fs = require('fs');
 require('dotenv').config();
 
 const options = {
@@ -17,6 +18,7 @@ const initialize = async () =>{
     return client;
 };
 
+//move into or create the remote directory
 Client.prototype.chdir = function (path){
     return new Promise((resolve,reject)=>{
         this.cwd(path,(err,currentDir)=>{
@@ -40,11 +42,38 @@ Client.prototype.chdir = function (path){
     })
 }
 
+//write a file at the current directory
 Client.prototype.write = function(source,target){
     return new Promise((resolve,reject)=>{
         this.put(source,target,(err)=>{
             if (err) reject(new Error(err));
             resolve(target+' created');
+        });
+    });
+}
+
+
+//Get a (remote) file from a path relative to remote root.
+//Places (local) file at the same path relative to localRoot variable.
+//returns 'No such file or directory' if file doesn't exist
+Client.prototype.readOne = function(path,fileName){
+    const localRoot = './public/ftpTemp/'+path
+    const localFull = `${localRoot}/${fileName}`
+    const remoteFull = `/${path}/${fileName}`
+
+    return new Promise((resolve,reject)=>{
+        this.get(remoteFull,(err,filestream)=>{
+            if (err) reject(new Error(err));
+            try{
+                fs.mkdirSync(localRoot, { recursive: true });
+                const writer = fs.createWriteStream(localFull)
+                writer.on('error',(writeErr)=>reject(new Error(writeErr)))
+                filestream.pipe(writer);
+            }
+            catch(err){
+                reject(new Error(err));
+            }
+            resolve(fileName+' created');
         });
     });
 }
