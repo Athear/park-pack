@@ -27,7 +27,11 @@ const dogSignupFormHandler = async (event) => {
     document.location.replace('/dashboard');
     console.log("dog profile created!" + response);
   } else {
-    alert(response.statusText);
+    sweetAlert.fire( {
+      title: "User profile not created",
+      text: response.statusText,
+      icon: "warning"
+    })
     console.log("OOPS, dog profile NOT created");
   }
 }

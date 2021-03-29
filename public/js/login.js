@@ -17,7 +17,11 @@ const loginFormHandler = async (event) => {
       console.log("response.ok is redirecting?", response);
       document.location.replace("/dashboard");
     } else {
-      alert("Failed to log in");
+      sweetAlert.fire( {
+        title: "User not logged in",
+        text: response.statusText,
+        icon: "warning"
+      });
     }
   }
 };
