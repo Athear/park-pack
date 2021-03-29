@@ -26,6 +26,8 @@ router.post("/userprofile", async (req, res) => {
       user.save().then((result) => {
         console.log(result);
         req.session.logged_in = true;
+        req.session.user_id = user.id;
+        req.session.first_name = user.first_name
         console.log("user is authorized");
         res.status(200).json({
           message: "User created",
@@ -62,8 +64,8 @@ router.post("/login", async (req, res) => {
     }
     console.log(userData);
     req.session.save(() => {
-      req.session.user_id = userData.id;
       req.session.logged_in = true;
+      req.session.user_id = userData.id;
       req.session.first_name = userData.first_name
       console.log(req.session);
       res.json({ user: userData, message: "You are now logged in!" });
