@@ -25,7 +25,12 @@ const userSignupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/dogprofile");
     } else {
-      alert(response.statusText);
+      sweetAlert.fire( {
+        title: "User profile not created",
+        text: response.statusText,
+        icon: "warning"
+      })
+      
       console.log("UserSignup JS failing");
     }
   }
