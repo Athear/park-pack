@@ -46,7 +46,7 @@ router.get("/login", (req, res) => {
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const dogData = await Dog.findAll({
-      // include: [{model: User}]
+      include: [{model: User}]
       //how to exclude user password from this get?
     });
     console.log("@@you hit dashboard route!@@");
