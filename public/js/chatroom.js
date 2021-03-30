@@ -103,15 +103,13 @@ async function getUserData() {
           title: "Are you sure you want to leave this room?",
           icon: "warning",
           showCancelButton: true,
-          showConfirmButton: true,
-          focusConfirm: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, Leave!'
         })
         .then((result) => {
-          if (result) { 
-
-            window.location = "../chat" 
-          } else {
-            window.location = "#";
+          if (result.isConfirmed) { 
+             window.location = "../chat" 
           }
         });
       })
