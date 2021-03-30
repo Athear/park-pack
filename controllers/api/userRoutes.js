@@ -3,7 +3,7 @@ const { User } = require("../../models");
 
 //test in postman with POST http://localhost:3001/api/users/userprofile
 
-router.post("/userprofile", async (req, res) => {
+router.post("/ownerprofile", async (req, res) => {
   console.log("Incoming: user data: \n", req.body);
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -20,6 +20,7 @@ router.post("/userprofile", async (req, res) => {
         email: req.body.email,
         zip: req.body.zipcode,
         password: req.body.password,
+        gender: req.body.gender
        
         // continue adding user values to save
       });
@@ -28,7 +29,7 @@ router.post("/userprofile", async (req, res) => {
         req.session.logged_in = true;
         req.session.user_id = user.id;
         req.session.first_name = user.first_name
-        console.log("user is authorized");
+        console.log(user);
         res.status(200).json({
           message: "User created",
         });

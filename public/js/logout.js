@@ -7,7 +7,11 @@ const logout = async () => {
     if (response.ok) {
       document.location.replace('/login');
     } else {
-      alert(response.statusText);
+      sweetAlert.fire( {
+        title: "Logout unsuccessful",
+        text: response.statusText,
+        icon: "warning"
+      })
     }
   };
   

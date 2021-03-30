@@ -21,7 +21,7 @@
   <header>
     <!-- start offcanvas navbar-->
     <div class="jumbotron">
-      <button class="btn btn-action" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+      <button class="btn btn-action btn-bone" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
         aria-controls="offcanvasScrolling"><i class="fas fa-bone"></i> </button>
       <div class="offcanvas offcanvas-start offcanvas-style" data-bs-scroll="true" data-bs-backdrop="false"
         tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -36,7 +36,8 @@
             <li class="nav-item"><a href="/dashboard" class="nav-link"><i class="fas fa-paw fa-2x mx-3"></i>Doggy
                 Dashboard</a></li>
             <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-heart fa-2x mx-3"></i>My Pack</a></li>
-            <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-dog fa-2x mx-3"></i>Profile</a></li>
+            <li class="nav-item"><a href="/myprofile" class="nav-link"><i class="fas fa-dog fa-2x mx-3"></i>Profile</a>
+            </li>
             <li class="nav-item"><a href="/chat" class="nav-link"><i class="fas fa-comments fa-2x mx-3"></i>Chat</a>
             </li>
             <li class="nav-item" id="logout"><a href="#" class="nav-link"><i
@@ -47,11 +48,10 @@
         </div>
       </div>
       {{!-- end of offcanvas navbar --}}
-      <div class="position-relative">
-        <h1 class="logo position-absolute top-50 start-50 translate-middle">Park Pack<span><img
-              src="./images/icons/noun_Dog_1539664_sm.png" alt="Welcome to the Bark Side" class="ms-3"></span></h1>
-
-      </div>
+       <h1 class="logo">Park Pack<span><img
+              src="/images/icons/parkpackicon.png" alt="Welcome to the Bark Side" class="img-fluid ms-3"></span></h1>
+       
+      
     </div>
   </header>
 
@@ -70,8 +70,13 @@
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
 
+
   <script src="../../public/js/homepage.js"></script>
   <script src="/js/profilecard.js"></script>
+
+
+
+
 
 </body>
 
