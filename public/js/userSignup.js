@@ -15,7 +15,7 @@ const userSignupFormHandler = async (event) => {
   // const distance = document.querySelector('#distanceRange').value.trim();
 
   if (firstName && lastName && email && password && zipcode) {
-    const response = await fetch("/api/users/userprofile", {
+    const response = await fetch("/api/users/ownerprofile", {
       method: "POST",
       body: JSON.stringify({ firstName, lastName, email, password, zipcode, gender }),
 
