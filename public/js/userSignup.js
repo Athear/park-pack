@@ -6,6 +6,7 @@ const userSignupFormHandler = async (event) => {
   const lastName = document.querySelector("#lastName").value.trim();
   const email = document.querySelector("#email").value.trim();
   const gender = document.querySelector('input[name="gender"]:checked').value;
+  const genPref = document.querySelector('input[name="genderPref"]:checked').value;
   // const genderPref = document.getElementById("genderPref").value;
 
   const password = document.querySelector("#password").value.trim();
@@ -14,10 +15,10 @@ const userSignupFormHandler = async (event) => {
 
   // const distance = document.querySelector('#distanceRange').value.trim();
 
-  if (firstName && lastName && email && password && zipcode) {
+  if (firstName && lastName && email && password && zipcode && gender && genPref) {
     const response = await fetch("/api/users/ownerprofile", {
       method: "POST",
-      body: JSON.stringify({ firstName, lastName, email, password, zipcode, gender }),
+      body: JSON.stringify({ firstName, lastName, email, password, zipcode, gender, genPref }),
 
       headers: { "Content-Type": "application/json" },
     });
