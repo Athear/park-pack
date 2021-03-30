@@ -15,12 +15,20 @@ body{
   ;
 }
 
-h2, label {
+label{
     color:#16697a;
     font-family: 'Lexend';
-    margin-top: 7%;
-    
+    margin-top: 7%;   
 }
+
+.formh2 {
+	color:#16697a;
+    font-family: 'Lexend';
+    margin-top: 7%; 
+}
+
+
+
 #mainAct {
   color:#16697a;
   font-family: 'Lexend';
@@ -36,6 +44,16 @@ h2, label {
 
 .btn-action{
   background-color: #ffa62b;
+}
+
+#sign-up-link{
+	margin-top: 3px;
+	text-decoration: none;
+	color:#16697a;
+}
+
+#sign-up-link:hover{
+	color:#ffa62b;
 }
 
 /* offcanvas stylings */
@@ -99,16 +117,19 @@ margin-top:0%;
 background-color: #ffffff;
 }
 
-input[type=checkbox] {
-  margin-left: 2%
-}
-/* font-family: 'Hachi Maru Pop', cursive;
-font-family: 'Lexend', sans-serif;
 
-font-family: 'Neucha', cursive;
+/* Fonts: 
+font-family: 'Hachi Maru Pop', cursive;
+font-family: 'Lexend', sans-serif;
 font-family: 'Original Surfer', cursive;
-font-family: 'Potta One', cursive;
-font-family: 'Train One', cursive; */
+ */
+
+/* profilecard view stylings */
+.cardh5, .list-unstyled{
+	color:#16697a;
+	font-family: 'Lexend', sans-serif;
+}
+
 
 
 /* chatroom stylings */
@@ -137,6 +158,32 @@ font-family: 'Train One', cursive; */
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+#chat-icon{
+	color: #ffa62b
+}
+
+.chath2 {
+	color:#ede7e3;
+    font-family: 'Lexend';
+    margin-top: 7%;
+	text-align:center;
+
+}
+
+.chatroomh3{
+	color:#ede7e3;
+    font-family: 'Lexend';
+}
+
+.chatroomh2{
+	color:#ede7e3;
+    font-family: 'Lexend';
+}
+
+.chatroomicon{
+	color: #ffa62b;
 }
 
 .chat-main {
