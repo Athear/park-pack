@@ -43,6 +43,9 @@ h2, label {
   color:#16697a
 }
 
+.btn-bone {
+	margin: 25px 0px 0px 25px;
+}
 .nav-link{
   color: #ede7e3
 }
@@ -64,9 +67,10 @@ color: #ffa62b
   
   /* jumbotron styling */
   .jumbotron {
-    padding: 2rem 2rem 3rem 2rem;
-    /* background-color: #1d3557; */
     background-color: #16697a;
+	background-size: cover;
+	height:auto;
+	width:100%;
     border-radius: .3rem;  
   }
 
@@ -75,6 +79,8 @@ color: #ffa62b
     font-size: xx-large;
     font-family: 'Original Surfer', cursive;
     color:#ffa62b;
+	text-align: center;
+
 }
 
 .form {
