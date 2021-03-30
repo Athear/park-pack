@@ -1,51 +1,55 @@
 const userSignupFormHandler = async (event) => {
-    event.preventDefault();
-    console.log("user submit button clicked");
-  
-    const firstName = document.querySelector('#firstName').value.trim();
-    const lastName = document.querySelector('#lastName').value.trim();
-    const email = document.querySelector('#email').value.trim();
- // const gender = document.getElementById("gender").value;
-    // const genderPref = document.getElementById("genderPref").value;
+  event.preventDefault();
+  console.log("user submit button clicked");
 
-    const password = document.querySelector('#password').value.trim();
-    const zipcode = document.querySelector('#zip').value.trim();
-    // const userName = document.querySelector("#userName").value();
-    
-    // const distance = document.querySelector('#distanceRange').value.trim();
+  const firstName = document.querySelector("#firstName").value.trim();
+  const lastName = document.querySelector("#lastName").value.trim();
+  const email = document.querySelector("#email").value.trim();
+  // const gender = document.getElementById("gender").value;
+  // const genderPref = document.getElementById("genderPref").value;
 
-    if (firstName && lastName && email && password && zipcode) {
-      const response = await fetch('/api/users/userprofile', {
-        method: 'POST',
-        body: JSON.stringify({ firstName, lastName, email, password, zipcode }),
+  const password = document.querySelector("#password").value.trim();
+  const zipcode = document.querySelector("#zip").value.trim();
+  // const userName = document.querySelector("#userName").value();
 
-        headers: { 'Content-Type': 'application/json' },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/dogprofile');
-      } else {
+  // const distance = document.querySelector('#distanceRange').value.trim();
 
-        alert(response.statusText);
-        console.log("UserSignup JS failing");
-      }
+  if (firstName && lastName && email && password && zipcode) {
+    const response = await fetch("/api/users/userprofile", {
+      method: "POST",
+      body: JSON.stringify({ firstName, lastName, email, password, zipcode }),
+
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      document.location.replace("/dogprofile");
+    } else {
+      sweetAlert.fire( {
+        title: "User profile not created",
+        text: response.statusText,
+        icon: "warning"
+      })
+      
+      console.log("UserSignup JS failing");
     }
-  };
+  }
+};
 
 document
-  .querySelector('#userSubmit')
-  .addEventListener('click', userSignupFormHandler);
+  .querySelector("#userSubmit")
+  .addEventListener("click", userSignupFormHandler);
 
-//email set to username 
+//email set to username
 
-$(function() {
-  var emailAdd = $('#email');
-  emailAdd.change(function() {
-      $('#userName').val(emailAdd.val());
+$(function () {
+  var emailAdd = $("#email");
+  emailAdd.change(function () {
+    $("#userName").val(emailAdd.val());
   });
 });
 
-  //gender pref modal vanilla javascript 
+//gender pref modal vanilla javascript
 
 //   const friendModalActive = () => {
 //     const friendInfo = document.querySelector(".infoAlert");
@@ -65,13 +69,11 @@ $(function() {
 //     .querySelector('.modal-close')
 //     .addEventListener('click', friendModalInActive)
 
-  
-   //gender pref modal jquery
-   $(document).on("click", "#friendPrefInfo", function () {
-    $(".infoAlert").addClass("is-active");
+//gender pref modal jquery
+$(document).on("click", "#friendPrefInfo", function () {
+  $(".infoAlert").modal("hide");
 
-    $(".modal-close").click(function () {
-        $(".infoAlert").removeClass("is-active");
-
-    });;
-})
+  $(".modal-close").click(function () {
+    $(".infoAlert").modal("hide");
+  });
+});

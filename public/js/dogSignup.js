@@ -15,18 +15,23 @@ const dogSignupFormHandler = async (event) => {
   const breed = document.querySelector('#breed').value.trim();
   const weight = document.querySelector('#weight').value.trim();
   const energy = document.querySelector('#energyLevel').value;
-
+  const gender = document.querySelector('input[name="dogGender"]:checked').value;
+  
   if (name && age && breed && weight && energy) {
   const response = await fetch('/api/dogs/dogprofile', {
     method: 'POST',
-    body: JSON.stringify({ name, age, breed, weight, energy }),
+    body: JSON.stringify({ name, age, breed, weight, energy, gender }),
     headers: { 'Content-Type': 'application/json' },
   });
   if (response.ok) {
     document.location.replace('/dashboard');
-    console.log("dog profile created!");
+    console.log("dog profile created!" + response);
   } else {
-    alert(response.statusText);
+    sweetAlert.fire( {
+      title: "User profile not created",
+      text: response.statusText,
+      icon: "warning"
+    })
     console.log("OOPS, dog profile NOT created");
   }
 }

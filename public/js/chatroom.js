@@ -1,4 +1,3 @@
-
 const chatForm = document.getElementById("chat-form");
 const chatMessages = document.querySelector(".chat-messages");
 const roomName = document.getElementById("room-name");
@@ -6,7 +5,7 @@ const userList = document.getElementById("users");
 const socket = io();
 
 const room = location.pathname.split("/chatroom/")[1];
-roomName.textContent = room
+roomName.textContent = room;
 async function getUserData() {
   try {
     const response = await fetch("/api/users/user_data");
@@ -14,7 +13,6 @@ async function getUserData() {
     console.log(userData);
 
     const username = userData.name;
-    
 
     // Join chatroom
     socket.emit("joinRoom", { username, room });
@@ -87,16 +85,39 @@ async function getUserData() {
     }
 
     //Prompt the user before leave chat room
+    //     document.getElementById("leave-btn").addEventListener("click", () => {
+    //       const leaveRoom = confirm("Are you sure you want to leave the chatroom?");
+    //       if (leaveRoom) {
+    //         window.location = "../chat";
+    //       } else {
+    //       }
+    //     });
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // }
+
     document.getElementById("leave-btn").addEventListener("click", () => {
-      const leaveRoom = confirm("Are you sure you want to leave the chatroom?");
-      if (leaveRoom) {
-        window.location = "../chat";
-      } else {
-      }
-    });
+      sweetAlert
+        .fire({
+          title: "Are you sure you want to leave this room?",
+          icon: "warning",
+          showCancelButton: true,
+          cancelButtonColor: "#d33",
+        })
+        .then((result) => {
+          if (result) { 
+
+            window.location = "../chat" 
+          } else {
+            window.location = "#";
+          }
+        });
+      })
   } catch (err) {
     console.log(err);
   }
 }
+
 
 getUserData();
