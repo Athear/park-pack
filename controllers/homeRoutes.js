@@ -12,10 +12,10 @@ router.get("/", async (req, res) => {
 });
 
 // gets and renders sign-in page for userprofile
-router.get("/userprofile", async (req, res) => {
+router.get("/ownerprofile", async (req, res) => {
   try {
     // console.log(res);
-    res.render("userprofile");
+    res.render("ownerprofile");
   } catch (err) {
     res.status(500).json(err);
   }
