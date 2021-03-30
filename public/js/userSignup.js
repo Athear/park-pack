@@ -70,10 +70,17 @@ $(function () {
 //     .addEventListener('click', friendModalInActive)
 
 //gender pref modal jquery
-$(document).on("click", "#friendPrefInfo", function () {
-  $(".infoAlert").modal("hide");
+// $(document).on("click", "#friendPrefInfo", function () {
+//   $(".infoAlert").modal("hide");
 
-  $(".modal-close").click(function () {
-    $(".infoAlert").modal("hide");
-  });
-});
+//   $(".modal-close").click(function () {
+//     $(".infoAlert").modal("hide");
+//   });
+// });
+
+document.querySelector("#friendPrefInfo").addEventListener("click", function () {
+  sweetAlert.fire ({
+    title: "Gender Preference",
+    text: "We will try to match you with human friends of this gender",
+  })
+})
