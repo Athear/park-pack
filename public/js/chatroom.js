@@ -103,7 +103,8 @@ async function getUserData() {
           title: "Are you sure you want to leave this room?",
           icon: "warning",
           showCancelButton: true,
-          cancelButtonColor: "#d33",
+          showConfirmButton: true,
+          focusConfirm: true,
         })
         .then((result) => {
           if (result) { 
