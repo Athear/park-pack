@@ -28,16 +28,14 @@ var addpack = async (event) => {
 };
 
 var viewProfile = async (event) => {
-  var user_id = event.srcElement.dataset.user
-  
-  if (user_id) {
-    const response = await fetch("api/dogs/:id", {
-      method: "POST",
-      body: JSON.stringify({ user_id }),
-      headers: { "Content-Type": "application/json" },
-    });
+  var dog_id = event.target.value
+  console.log(event);
+  if (dog_id) {
+    const response = await fetch("api/dogs/"+ dog_id);
+    
     if (response.ok) {
-      document.location.replace("/dashboard/" + user_id);
+      console.log(response);
+      document.location.replace("/individualprofile/" + dog_id);
     } else {
       sweetAlert.fire( {
         title: "Cannot see doggo's profile",
@@ -54,7 +52,7 @@ var viewProfile = async (event) => {
 document.querySelectorAll(".addpack").forEach(function (element) {
   element.addEventListener("click", addpack);
 });
-document.querySelectorAll(".viewProfile").forEach(function (element) {
+document.querySelectorAll(".viewprofile").forEach(function (element) {
   element.addEventListener("click", viewProfile);
 });
 // $(document).on("click", "#addpack", function (e) {

@@ -51,7 +51,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
     
     const dogs = dogData.map((profile) => profile.get({ plain: true }));
-   
+   console.log(dogs);
     res.render("dashboard", {
       dogs,
       logged_in: req.session.logged_in,
@@ -61,9 +61,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
-router.get("/dashboard/:id", withAuth, async (req, res) => {
+router.get("/individualprofile/:id", withAuth, async (req, res) => {
   try {
-    const dogData = await Dog.findByPk({
+    const dogData = await Dog.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -73,11 +73,12 @@ router.get("/dashboard/:id", withAuth, async (req, res) => {
     
     const dog = dogData.get({ plain: true });
    
-    res.render("dashboard/:id", {
-      dog,
+    res.render("individualprofile", {
+      ...dog,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

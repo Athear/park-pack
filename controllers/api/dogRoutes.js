@@ -25,11 +25,11 @@ router.get('/', apiAuth, async (req,res) => {
 
 router.get('/:id', apiAuth, async (req,res) => {
     try {
-        const Dogs = await Dog.findByPk(req.params.id, {
+        const dog = await Dog.findByPk(req.params.id, {
             include: [
               {
                 model: User,
-                attributes: ['name'],
+                attributes: ['first_name'],
               },
               {
                   model: Activity,
@@ -37,8 +37,10 @@ router.get('/:id', apiAuth, async (req,res) => {
               },
             ],
         });
+        res.json(dog);
         
     } catch (err) {
+      console.log(err);
         res.status(400).json(err);
       }
 });
