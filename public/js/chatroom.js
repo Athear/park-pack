@@ -10,8 +10,6 @@ async function getUserData() {
   try {
     const response = await fetch("/api/users/user_data");
     const userData = await response.json();
-    console.log(userData);
-
     const username = userData.name;
 
     // Join chatroom
@@ -22,15 +20,17 @@ async function getUserData() {
       outputRoomName(room);
       outputUsers(users);
     });
-    socket.on('history', messages => {
-      console.log(messages);
-      messages.forEach(message => {
-        outputMessage({time: new Date(message.createdAt).toLocaleTimeString() , text: message.message, username: message.user});
-      })
-    })
+    socket.on("history", (messages) => {
+      messages.forEach((message) => {
+        outputMessage({
+          time: new Date(message.createdAt).toLocaleTimeString(),
+          text: message.message,
+          username: message.user,
+        });
+      });
+    });
     // Message from server
     socket.on("message", (message) => {
-      console.log(message);
       outputMessage(message);
 
       // Scroll down
@@ -74,12 +74,12 @@ async function getUserData() {
       document.querySelector(".chat-messages").appendChild(div);
     }
 
-    // Add room name to DOM
+    // Add room name to page
     function outputRoomName(room) {
       roomName.innerText = room;
     }
 
-    // Add users to DOM
+    // Add users to page
     function outputUsers(users) {
       userList.innerHTML = "";
       users.forEach((user) => {
@@ -88,40 +88,24 @@ async function getUserData() {
         userList.appendChild(li);
       });
     }
-
-    //Prompt the user before leave chat room
-    //     document.getElementById("leave-btn").addEventListener("click", () => {
-    //       const leaveRoom = confirm("Are you sure you want to leave the chatroom?");
-    //       if (leaveRoom) {
-    //         window.location = "../chat";
-    //       } else {
-    //       }
-    //     });
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // }
-
     document.getElementById("leave-btn").addEventListener("click", () => {
       sweetAlert
         .fire({
           title: "Are you sure you want to leave this room?",
           icon: "warning",
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, Leave!'
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, Leave!",
         })
         .then((result) => {
-          if (result.isConfirmed) { 
-             window.location = "../chat" 
+          if (result.isConfirmed) {
+            window.location = "../chat";
           }
         });
-      })
+    });
   } catch (err) {
     console.log(err);
   }
 }
-
-
 getUserData();
