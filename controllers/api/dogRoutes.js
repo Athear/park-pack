@@ -63,7 +63,8 @@ router.post('/dogprofile', apiAuth, async (req, res) => {
 
 router.post('/profilecard', apiAuth, async(req, res) => {
   try {
-    console.log("here is the req body for the post" + req.body);
+    console.log("here is the req body for the post" + req.body.friend_id);
+    console.log('here should be the user id' + req.session.user_id);
     const newFriend = await Friends.create({
       User_id : req.session.user_id,
       friend_id : req.body.friend_id,

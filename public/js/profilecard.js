@@ -1,4 +1,4 @@
-var addpack = async (event, req) => {
+var addpack = async (event) => {
     console.log(event.srcElement.dataset.user);
     event.preventDefault();
     
@@ -6,12 +6,12 @@ var addpack = async (event, req) => {
     const friend_id = event.srcElement.dataset.user;
     console.log(friend_id);
     // const friend_id = event.dataset.user;
-    const user_id =  req.session.user_id;
+    // const user_id =  req.session.user_id;
 
-    if (friend_id && user_id) {
+    if (friend_id) {
         const response = await fetch('/api/dogs/profilecard', {
             method: 'POST',
-            body: JSON.stringify({ friend_id, user_id}),
+            body: JSON.stringify({ friend_id }),
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.ok) {
@@ -23,4 +23,9 @@ var addpack = async (event, req) => {
         }
     }
 };
-document.querySelector('#addpack').addEventListener('click', addpack);
+document.querySelector('.addpack').addEventListener('click', addpack);
+
+// $(document).on("click", "#addpack", function (e) {
+//     e.preventDefault;
+//     recallOMDB($(this).attr("data-recent"));
+//   });
