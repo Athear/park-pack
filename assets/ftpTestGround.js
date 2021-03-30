@@ -1,5 +1,5 @@
 const ftp = require('../config/ftp');
-
+const fs = require('fs');
 
 const testRun = async () =>{
     const client = await ftp.initialize();
@@ -66,7 +66,49 @@ const doNewFile = async () =>{
     client.end();
 }
 
+
+const getAFile = async () =>{
+    const location = 'user-5'
+    const localFile = 'README.md'
+    const remoteFile = 'here_is_a_thing.md'
+    const destination = './public/temp'
+    
+    const writer = fs.createWriteStream(`${destination}/${localFile}`)
+    const client = await ftp.initialize();
+    const loc = await client.chdir(location);
+    
+    try{
+        client.get(`/${location}/${remoteFile}`,(err,fileStream)=>{
+            //returns 'No such file or directory' if file doesn't exist
+            if (err) throw err
+            fileStream.pipe(writer);
+            client.end();
+        });
+    }
+    catch(err){
+        console.log(err)
+    }    
+}
+
+const getAFileSimple = async () =>{
+    const location = 'user-5'
+    const remoteFile = 'here_is_a_thing.md'
+
+    const client = await ftp.initialize();
+
+    try{
+        const incoming = await client.readOne(location,remoteFile);
+        console.log(incoming);
+        client.end();
+    }
+    catch(err){
+        console.log(err)
+    }    
+}
+
 // testRun();
 // testFilePath();
 // findFilePath();
-doNewFile();
+// doNewFile();
+// getAFile();
+getAFileSimple();

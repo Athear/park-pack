@@ -12,10 +12,10 @@ router.get("/", async (req, res) => {
 });
 
 // gets and renders sign-in page for userprofile
-router.get("/userprofile", async (req, res) => {
+router.get("/ownerprofile", async (req, res) => {
   try {
     // console.log(res);
-    res.render("userprofile");
+    res.render("ownerprofile");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -25,7 +25,7 @@ router.get("/userprofile", async (req, res) => {
 router.get("/dogprofile", async (req, res) => {
   try {
     // console.log(res);
-    res.render("dogprofile");
+    res.render("doggyprofile");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -46,7 +46,7 @@ router.get("/login", (req, res) => {
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const dogData = await Dog.findAll({
-      // include: [{model: User}]
+      include: [{model: User}]
       //how to exclude user password from this get?
     });
     
