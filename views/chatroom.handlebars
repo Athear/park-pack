@@ -1,34 +1,27 @@
-    <div class="chat-container">
-      <header class="chat-header">
-        <h2 class="chath2"><i class="fas fa-dog fa-2x mx-4"></i>Woof's Happening</h2>
-        {{!-- <a id="leave-btn" class="btn">Leave Room</a> --}}
-
-        <input type="button" name="swal" value="Leave Room" id="leave-btn" onclick="clickedMe()">
-      </header>
-      <main class="chat-main">
-        <div class="chat-sidebar">
-          <h3 class="chatroomh3"><i class="fas fa-comments chatroomicon me-2"></i> Room Name: </h3>
-          <h2 class="chatroomh2" id="room-name">{{ name }}</h2>
-          <h3 class="chatroomh3"><i class="fas fa-paw chatroomicon me-2"></i> Users</h3>
-          <ul id="users"></ul>
-        </div>
-        <div class="chat-messages"></div>
-      </main>
-      <div class="chat-form-container">
-        <form id="chat-form">
-          <input
-            id="msg"
-            type="text"
-            placeholder="Enter Message"
-            required
-            autocomplete="off"
-          />
-          <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
-        </form>
-      </div>
+{{!-- individual chatrooms --}}
+<div class="chat-container">
+  <header class="chat-header">
+    <h2 class="chath2"><i class="fas fa-dog fa-2x mx-4"></i>Woof's Happening</h2>
+    <input type="button" name="swal" value="Leave Room" id="leave-btn" onclick="clickedMe()">
+  </header>
+  <main class="chat-main">
+    <div class="chat-sidebar">
+      <h3 class="chatroomh3"><i class="fas fa-comments chatroomicon me-2"></i> Room Name: </h3>
+      <h2 class="chatroomh2" id="room-name">{{ name }}</h2>
+      <h3 class="chatroomh3"><i class="fas fa-paw chatroomicon me-2"></i> Users</h3>
+      <ul id="users"></ul>
     </div>
+    <div class="chat-messages"></div>
+  </main>
+  <div class="chat-form-container">
+    <form id="chat-form">
+      <input id="msg" type="text" placeholder="Enter Message" required autocomplete="off" />
+      <button class="btn"><i class="fas fa-paper-plane"></i> Send</button>
+    </form>
+  </div>
+</div>
 
-    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-    <script src="/js/chatroom.js"></script>
-     {{!-- <script type="text/javascript" src="http://localhost:3001/socket.io/socket.io.js"></script> --}}
-     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script src="/js/chatroom.js"></script>
+{{!-- <script type="text/javascript" src="http://localhost:3001/socket.io/socket.io.js"></script> --}}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
