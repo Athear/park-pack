@@ -23,7 +23,8 @@ var addpack = async (event) => {
         }
     }
 };
-document.querySelector('.addpack').addEventListener('click', addpack);
+document.querySelector('#addpack').addEventListener('click', addpack);
+
 
 // $(document).on("click", "#addpack", function (e) {
 //     e.preventDefault;
