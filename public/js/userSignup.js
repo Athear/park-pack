@@ -5,7 +5,7 @@ const userSignupFormHandler = async (event) => {
   const firstName = document.querySelector("#firstName").value.trim();
   const lastName = document.querySelector("#lastName").value.trim();
   const email = document.querySelector("#email").value.trim();
-  // const gender = document.getElementById("gender").value;
+  const gender = document.querySelector('input[name="gender"]:checked').value;
   // const genderPref = document.getElementById("genderPref").value;
 
   const password = document.querySelector("#password").value.trim();
@@ -17,7 +17,7 @@ const userSignupFormHandler = async (event) => {
   if (firstName && lastName && email && password && zipcode) {
     const response = await fetch("/api/users/userprofile", {
       method: "POST",
-      body: JSON.stringify({ firstName, lastName, email, password, zipcode }),
+      body: JSON.stringify({ firstName, lastName, email, password, zipcode, gender }),
 
       headers: { "Content-Type": "application/json" },
     });
@@ -25,7 +25,12 @@ const userSignupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace("/dogprofile");
     } else {
-      alert(response.statusText);
+      sweetAlert.fire( {
+        title: "User profile not created",
+        text: response.statusText,
+        icon: "warning"
+      })
+      
       console.log("UserSignup JS failing");
     }
   }
@@ -65,10 +70,17 @@ $(function () {
 //     .addEventListener('click', friendModalInActive)
 
 //gender pref modal jquery
-$(document).on("click", "#friendPrefInfo", function () {
-  $(".infoAlert").modal("hide");
+// $(document).on("click", "#friendPrefInfo", function () {
+//   $(".infoAlert").modal("hide");
 
-  $(".modal-close").click(function () {
-    $(".infoAlert").modal("hide");
-  });
-});
+//   $(".modal-close").click(function () {
+//     $(".infoAlert").modal("hide");
+//   });
+// });
+
+document.querySelector("#friendPrefInfo").addEventListener("click", function () {
+  sweetAlert.fire ({
+    title: "Gender Preference",
+    text: "We will try to match you with human friends of this gender",
+  })
+})

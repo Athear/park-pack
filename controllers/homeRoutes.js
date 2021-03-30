@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 router.get("/userprofile", async (req, res) => {
   try {
     // console.log(res);
-    res.render("userProfile");
+    res.render("userprofile");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -25,7 +25,7 @@ router.get("/userprofile", async (req, res) => {
 router.get("/dogprofile", async (req, res) => {
   try {
     // console.log(res);
-    res.render("dogProfile");
+    res.render("dogprofile");
   } catch (err) {
     res.status(500).json(err);
   }
