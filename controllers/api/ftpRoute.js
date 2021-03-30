@@ -28,6 +28,7 @@ router.get('/dogimage/:id', apiAuth, async (req,res) => {
 
 router.post('/dogimage', apiAuth, async (req, res) => {
     try {
+      console.log(req.body)
         const incomingIMG = req.body.dogImage //TODO: How do we get this.
         const incomingFileName = incomingIMG.split(/.*[\/|\\]/)[1]; //get just filename from path
         

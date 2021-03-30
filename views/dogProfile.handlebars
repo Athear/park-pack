@@ -45,12 +45,11 @@
             {{!-- <small id="energyRange" class="form-text text-muted">1 2 3 4 5</small> --}}
         </div>
         </div>
-         <div class="form-group">
-             <label>Profile Picture: </label>
-             </br>
-             </br>
-      <input type="file" class="form-control-file border" name="file">
-    </div>
+        <div class="form-group">
+            <label for="dogPic">Profile Picture: </label>
+            <input type="file" accept="image/*" class="form-control-file border" onchange="loadFile(event)" name="dogPic" id="dogPic">
+            <img id="dogPicImg" width="200" />	
+        </div>
         </br>
         <p id = 'mainAct'>Activities:</p>
        <div class="activities form-group">
@@ -86,5 +85,4 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./js/dogSignup.js"></script>
- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
