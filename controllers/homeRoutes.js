@@ -64,8 +64,11 @@ router.get("/dashboard", withAuth, async (req, res) => {
 router.get("/dashboard/:id", withAuth, async (req, res) => {
   try {
     const dogData = await Dog.findByPk({
-      include: [{model: User}]
-      //how to exclude user password from this get?
+      include: [
+        {
+          model: User,
+          attributes: { exclude: ["password"] },
+        }]
     });
     
     const dog = dogData.get({ plain: true });
