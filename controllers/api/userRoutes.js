@@ -3,7 +3,7 @@ const { User } = require("../../models");
 
 //test in postman with POST http://localhost:3001/api/users/userprofile
 
-router.post("/userprofile", async (req, res) => {
+router.post("/ownerprofile", async (req, res) => {
   console.log("Incoming: user data: \n", req.body);
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
