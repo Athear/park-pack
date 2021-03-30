@@ -5,7 +5,7 @@ const userSignupFormHandler = async (event) => {
   const firstName = document.querySelector("#firstName").value.trim();
   const lastName = document.querySelector("#lastName").value.trim();
   const email = document.querySelector("#email").value.trim();
-  // const gender = document.getElementById("gender").value;
+  const gender = document.querySelector('input[name="gender"]:checked').value;
   // const genderPref = document.getElementById("genderPref").value;
 
   const password = document.querySelector("#password").value.trim();
@@ -17,7 +17,7 @@ const userSignupFormHandler = async (event) => {
   if (firstName && lastName && email && password && zipcode) {
     const response = await fetch("/api/users/userprofile", {
       method: "POST",
-      body: JSON.stringify({ firstName, lastName, email, password, zipcode }),
+      body: JSON.stringify({ firstName, lastName, email, password, zipcode, gender }),
 
       headers: { "Content-Type": "application/json" },
     });
