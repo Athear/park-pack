@@ -61,6 +61,24 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+router.get("/dashboard/:id", withAuth, async (req, res) => {
+  try {
+    const dogData = await Dog.findByPk({
+      include: [{model: User}]
+      //how to exclude user password from this get?
+    });
+    
+    const dog = dogData.get({ plain: true });
+   
+    res.render("dashboard/:id", {
+      dog,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //get and render mypack page
 router.get("/mypack", withAuth, async (req, res) => {
   try {
