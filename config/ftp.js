@@ -56,6 +56,7 @@ Client.prototype.write = function(source,target){
 //Get a (remote) file from a path relative to remote root.
 //Places (local) file at the same path relative to localRoot variable.
 //returns 'No such file or directory' if file doesn't exist
+//returns the file path of the local file on success
 Client.prototype.readOne = function(path,fileName){
     const localRoot = './public/ftpTemp/'+path
     const localFull = `${localRoot}/${fileName}`
@@ -73,7 +74,7 @@ Client.prototype.readOne = function(path,fileName){
             catch(err){
                 reject(new Error(err));
             }
-            resolve(fileName+' created');
+            resolve(localRoot);
         });
     });
 }

@@ -7,12 +7,22 @@ const { withAuth, apiAuth } = require('../../utils/auth');
 
 router.get('/dogimage/:id', apiAuth, async (req,res) => {
     try {
-        const Dogs = await Dog.findByPk(req.params.id);
+        const dog = await Dog.findByPk(req.params.id);
+        //dog.pic
+        //dog.user_id
         //TODO: call a function to put that dogs picture in a temp folder
-        res.status(400);
+        const location = dog.pic
+        const remoteFile = dog.user_id
+
+        const client = await ftp.initialize();
+        const incoming = await client.readOne(location,remoteFile);
+        client.end();
+
+        res.status(200).json(incoming);
     } catch (err) {
+        console.log(err)
         res.status(400).json(err);
-      }
+    }
 });
 
 
