@@ -15,17 +15,48 @@ var addpack = async (event) => {
     });
     if (response.ok) {
       document.location.replace("/dashboard");
-      console.log("youve added to your pack!");
+      console.log("you've added to your pack!");
     } else {
-      alert(response.statusText);
+      sweetAlert.fire( {
+        title: "Doggo not added to your pack",
+        text: response.statusText,
+        icon: "warning"
+      });
       console.log("oops, theres a bug!");
     }
   }
 };
+
+var viewProfile = async (event) => {
+  var user_id = event.srcElement.dataset.user
+  
+  if (user_id) {
+    const response = await fetch("api/dogs/:id", {
+      method: "POST",
+      body: JSON.stringify({ user_id }),
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.ok) {
+      document.location.replace("/dashboard/" + user_id);
+    } else {
+      sweetAlert.fire( {
+        title: "Cannot see doggo's profile",
+        text: response.statusText,
+        icon: "warning"
+      });
+      console.log("oops, theres a bug!");
+    }
+
+  }
+};
+
+
 document.querySelectorAll(".addpack").forEach(function (element) {
   element.addEventListener("click", addpack);
 });
-
+document.querySelectorAll(".viewProfile").forEach(function (element) {
+  element.addEventListener("click", viewProfile);
+});
 // $(document).on("click", "#addpack", function (e) {
 //     e.preventDefault;
 //     recallOMDB($(this).attr("data-recent"));
