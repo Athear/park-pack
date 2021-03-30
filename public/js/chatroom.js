@@ -24,7 +24,12 @@ async function getUserData() {
       outputRoomName(room);
       outputUsers(users);
     });
-
+    socket.on('history', messages => {
+      console.log(messages);
+      messages.forEach(message => {
+        outputMessage({time: new Date(message.createdAt).toLocaleTimeString() , text: message.message, username: message.user});
+      })
+    })
     // Message from server
     socket.on("message", (message) => {
       console.log(message);
