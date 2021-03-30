@@ -49,9 +49,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
       // include: [{model: User}]
       //how to exclude user password from this get?
     });
-    console.log("@@you hit dashboard route!@@");
+    
     const dogs = dogData.map((profile) => profile.get({ plain: true }));
-    console.log("@@here's the dog data@@", dogs);
+   
     res.render("dashboard", {
       dogs,
       logged_in: req.session.logged_in,
@@ -75,6 +75,7 @@ router.get("/mypack", withAuth, async (req, res) => {
         },
       ],
     });
+
     const user = userData.get({ plain: true });
     res.render("mypack", {
       ...user,
@@ -84,6 +85,34 @@ router.get("/mypack", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//get and render myprofile page
+router.get("/myprofile", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+
+      include: [{ model: Dog }],
+    });
+
+    const user = userData.get({ plain: true });
+    console.log("@@hit myprofile route data looks like this ", user);
+
+    const dogs = user.dogs;
+    console.log(dogs);
+
+    res.render("myprofile", {
+     
+      dogs,
+      logged_in: req.session.logged_in,
+    })
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//get and render chat landing page
 router.get("/chat", withAuth, async (req, res) => {
   try {
     res.render("chat", {
@@ -94,6 +123,7 @@ router.get("/chat", withAuth, async (req, res) => {
   }
 });
 
+//get and render chatroom
 router.get("/chatroom/:room", withAuth, async (req, res) => {
   console.log(req.params);
   try {
@@ -107,24 +137,5 @@ router.get("/chatroom/:room", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-//boiler template below
-
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     const userData = await User.findAll({
-//       attributes: { exclude: ['password'] },
-//       order: [['name', 'ASC']],
-//     });
-
-//     const users = userData.map((project) => project.get({ plain: true }));
-
-//     res.render('homepage', {
-//       users,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;

@@ -1,0 +1,26 @@
+{{#each dogs}}
+<div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-8 window">
+        <h1 class="pageTitles">About {{name}}</h1>
+        <hr>
+        {{#if pic}}
+        <img src="{{pic}}" class="img-fluid rounded-circle" alt="doggy profile image" id="dogProfImg">
+        {{else}}
+        <img src="/images/icons/noun_Dog_1539664_lg.png" class="img-fluid" alt="placeholder image" id="dogprofilepic">
+        {{/if}}
+
+        <p>Hi my name is {{name}}! I'm a {{age}}-year-old {{gender}} {{breed}} who loves to play! Let's be friends!</p>
+
+        {{!-- <h2>About my Pet-Parent!</h2> --}}
+        <div class="form-group">
+            <a href="/mypack"><button type="submit" class="btn btn-action" id="addpack">View My Pack!</button></a>
+            <a href="/chat
+                    "><button type="submit" class="btn btn-action" id="addpack">Chat With Friends!</button></a>
+            <a href="/dashboard"><button type="submit" class="btn btn-action" id="addpack">Find New
+                    Friends!</button></a>
+
+
+
+        </div>
+    </div>
+    {{/each}}
