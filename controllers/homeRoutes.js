@@ -25,7 +25,7 @@ router.get("/ownerprofile", async (req, res) => {
 router.get("/dogprofile", async (req, res) => {
   try {
     // console.log(res);
-    res.render("dogprofile");
+    res.render("doggyprofile");
   } catch (err) {
     res.status(500).json(err);
   }
