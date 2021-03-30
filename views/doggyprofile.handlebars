@@ -9,17 +9,17 @@
         <div class="form-group col-sm">
             <label>Gender:</label>
             </br>
-            <input class="form-input" type="checkbox" name = "dogGender" value="Male">
+            <input type="radio" name = "dogGender" value="Male">
             <label for="male">Male</label>
-            <input class="form-input" type="checkbox" name = "dogGender" value="Female">
+            <input type="radio" name = "dogGender" value="Female">
             <label for="female">Female</label>
         </div>
         <div class="form-group col-sm">
             <label>Spayed/Neutered:</label>
             </br>
-            <input class="form-input" type="checkbox" name="fixed" value="Yes">
+            <input type="radio" name="fixed" value="Yes">
             <label for="yes">Yes</label>
-            <input class="form-input" type="checkbox" name ="fixed" value="Not yet">
+            <input type="radio" name ="fixed" value="Not yet">
             <label for="no"> Not Yet</label>
         </div>
         </div>
@@ -45,32 +45,34 @@
             {{!-- <small id="energyRange" class="form-text text-muted">1 2 3 4 5</small> --}}
         </div>
         </div>
-        <div class="form-group">
-            <label for="dogPic">Profile Picture: </label>
-            <input type="file" accept="image/*" class="form-control-file border" onchange="loadFile(event)" name="dogPic" id="dogPic">
-            <img id="dogPicImg" width="200" />	
-        </div>
+         <div class="form-group">
+             <label>Profile Picture: </label>
+             </br>
+             </br>
+      <input type="file" class="form-control-file border" name="file" id ="dogPic">
+    </div>
         </br>
         <p id = 'mainAct'>Activities:</p>
-       <div class="activities form-group">
-            {{!-- <label id = "mainAct">Activities:</label>
-            </br> --}}
+       <div class="activities form-group" id="activitiesbox">
             <input class="form-input" type="checkbox" id="hiking" value="hike">
             <label for="male">Hiking</label>
             <input class="form-input" type="checkbox" id="walk" value="walk">
             <label for="walk">Leisurely Walks</label>
             <input class="form-input" type="checkbox" id="frisbee" value="frisbee">
             <label for="walk">Frisbee</label>
+            </br>
             <input class="form-input" type="checkbox" id="toy" value="toy">
             <label for="walk">Squeaky Toys</label>
             <input class="form-input" type="checkbox" id="fetch" value="fetch">
             <label for="walk">Fetch</label>
+               <input class="form-input" type="checkbox" id="fetch" value="bigdog">
+            <label for="walk">Child friendly</label>
+            </br>
             <input class="form-input" type="checkbox" id="small" value="smalldogfriendly">
             <label for="walk">Small-dog friendly</label>
             <input class="form-input" type="checkbox" id="fetch" value="bigdog">
             <label for="walk">Big-dog friendly</label>
-            <input class="form-input" type="checkbox" id="fetch" value="bigdog">
-            <label for="walk">Child friendly</label>
+         
                
         </div>
         </br>
@@ -85,4 +87,5 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./js/dogSignup.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
