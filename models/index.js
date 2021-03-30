@@ -3,7 +3,7 @@ const Friends = require('./Friends');
 const Dog = require('./Dog');
 const Activity = require('./Activity');
 const Join_Dog_Activity = require('./Join_Dog_Activity');
-
+const chatMessage = require('./chatMessage')
 User.hasMany(Dog, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
@@ -52,4 +52,4 @@ Dog.belongsToMany(Activity, {
 })
 
 
-module.exports = { User, Dog, Friends, Join_Dog_Activity, Activity };
+module.exports = { User, Dog, Friends, Join_Dog_Activity, Activity, chatMessage };

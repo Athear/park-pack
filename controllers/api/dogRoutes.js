@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Dog, Activity, User, Join_Dog_Activity } = require('../../models');
+const { Dog, Activity, User, Join_Dog_Activity, Friends } = require('../../models');
 const { withAuth, apiAuth } = require('../../utils/auth');
 
 
@@ -60,6 +60,21 @@ router.post('/dogprofile', apiAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.post('/profilecard', apiAuth, async(req, res) => {
+  try {
+    console.log("here is the req body for the post" + req.body.friend_id);
+    console.log('here should be the user id' + req.session.user_id);
+    const newFriend = await Friends.create({
+      User_id : req.session.user_id,
+      friend_id : req.body.friend_id,
+    });
+    res.status(200).json(newFriend);
+  } catch (err) {
+    console.log("add-my pack failed"),
+    res.status(400).json(err)
+  }
+})
 
 router.delete('/:id', apiAuth, async (req, res) => {
   try {
