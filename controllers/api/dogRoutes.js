@@ -55,6 +55,7 @@ router.post('/dogprofile', apiAuth, async (req, res) => {
       gender: req.body.gender,
       fixed: true,
       user_id: req.session.user_id,
+      pic: req.session.picture,
     });
     res.status(200).json(newDog);
   } catch (err) {

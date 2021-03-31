@@ -30,7 +30,7 @@ const dogSignupFormHandler = async (event) => {
   if (name && age && breed && weight && energy) {
     const response = await fetch('/api/dogs/dogprofile', {
       method: 'POST',
-      body: JSON.stringify({ name, age, breed, weight, energy, gender }),
+      body: JSON.stringify({ name, age, breed, weight, energy, gender, picture }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
