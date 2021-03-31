@@ -99,7 +99,7 @@ router.get("/mypack", withAuth, async (req, res) => {
     console.log('user id : ',req.session.user_id)
   console.log('user data: ',userData);
     res.render("mypack", {
-        ...userData,
+        userData,
         logged_in: true,
       });
   } catch (err) {
