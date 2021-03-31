@@ -1,5 +1,10 @@
 {{!-- shows your friends --}}
-<h1>hello world</h1>
-{{#each }}
+<h2 class="formh2 mb-4"><i class="fas fa-dog me-3"></i>My Pack</h2>
+
+{{#if userData}}
+{{#each userData}}
 {{>profilecard}}
 {{/each}}
+{{else}}
+<p>Check out the dashboard to find friends!</p>
+{{/if}}
