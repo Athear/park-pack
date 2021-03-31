@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { User, Dog, Friends } = require("../models");
 const { withAuth } = require("../utils/auth");
+const { QueryTypes } = require('sequelize');
+const sequelize = require('../config/connection')
 
 router.get("/", async (req, res) => {
   try {
@@ -86,23 +88,20 @@ router.get("/individualprofile/:id", withAuth, async (req, res) => {
 //get and render mypack page
 router.get("/mypack", withAuth, async (req, res) => {
   try {
-    const userData = await User.findbyPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [
-        {
-          model: Dog,
-        },
-        {
-          model: Friends,
-        },
-      ],
+    const userData = await sequelize.query(`select d.*
+      from user u
+      inner join friend f on u.id = f.user_id
+      inner join dog d on d.user_id = f.friend_id 
+      where u.id = $userId`,{
+        bind: { userId:req.session.user_id },
+        type: QueryTypes.SELECT
     });
-
-    const user = userData.get({ plain: true });
+    console.log('user id : ',req.session.user_id)
+  console.log('user data: ',userData);
     res.render("mypack", {
-      ...user,
-      logged_in: true,
-    });
+        userData,
+        logged_in: true,
+      });
   } catch (err) {
     res.status(500).json(err);
   }
