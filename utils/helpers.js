@@ -1,6 +1,11 @@
 module.exports = {
 
 
+  get_dog_pic: (dog_user, dog_picture) => {
+    let picture = './images/icons/parkpackicon.png'
+    console.log(`user:${dog_user}; picture:${dog_picture}`)
+    return picture;
+  },
 
     
     // get_emoji: () => {
