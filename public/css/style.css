@@ -15,7 +15,7 @@ body{
   ;
 }
 
-label{
+label, p{
     color:#16697a;
     font-family: 'Lexend';
     margin-top: 7%;   
