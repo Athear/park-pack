@@ -16,8 +16,10 @@ const dogSignupFormHandler = async (event) => {
   const weight = document.querySelector('#weight').value.trim();
   const energy = document.querySelector('#energyLevel').value;
   const gender = document.querySelector('input[name="dogGender"]:checked').value;
+  const fixed = document.querySelector('input[name="fixed"]:checked').value;
   const picture = document.querySelector('#dogPic').files[0];
   const pictureName = picture.name
+
 
   var formData = new FormData();
 
@@ -34,7 +36,7 @@ const dogSignupFormHandler = async (event) => {
   if (name && age && breed && weight && energy) {
     const response = await fetch('/api/dogs/dogprofile', {
       method: 'POST',
-      body: JSON.stringify({ name, age, breed, weight, energy, gender, pictureName }),
+      body: JSON.stringify({ name, age, breed, weight, energy, gender, fixed, pictureName }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {

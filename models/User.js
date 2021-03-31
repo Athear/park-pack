@@ -41,7 +41,7 @@ User.init({
         allowNull: true,
     },
     genPref: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         allowNull: true,
     },
     password: {

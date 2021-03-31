@@ -31,9 +31,8 @@ Dog.init({
         allowNull: false,
     },
     fixed: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        default: true,
+        type: DataTypes.STRING,
+        allowNull: true,
     },
     energy: {
         type: DataTypes.INTEGER,

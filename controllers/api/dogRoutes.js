@@ -53,7 +53,7 @@ router.post('/dogprofile', apiAuth, async (req, res) => {
       weight: req.body.weight,
       energy: req.body.energy,
       gender: req.body.gender,
-      fixed: true,
+      fixed: req.body.fixed,
       pic: req.body.pictureName,
       user_id: req.session.user_id,
     });
