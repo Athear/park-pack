@@ -14,15 +14,23 @@ var addpack = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      document.location.replace("/dashboard");
-      console.log("you've added to your pack!");
+      // document.location.replace("/dashboard");
+      // console.log("you've added to your pack!");
+      sweetAlert.fire({
+        title: "This Doggo has been added to your pack!!",
+        // text: response.statusText,
+        showConfirmButton: true,
+        icon: "success"
+      });
+      // document.location.replace("/dashboard");
     } else {
       sweetAlert.fire( {
-        title: "Doggo not added to your pack",
-        text: response.statusText,
-        icon: "warning"
+        title: "This Doggo is already in  your pack!!",
+        // text: response.statusText,
+        icon: "warning",
+        showConfirmButton: true,
       });
-      console.log("oops, theres a bug!");
+      // console.log("oops, theres a bug!");
     }
   }
 };
