@@ -26,6 +26,7 @@
     "express-handlebars": "^5.2.1",
     "express-session": "^1.17.1",
     "ftp": "^0.3.10",
+    "multiparty": "^4.2.2",
     "mysql2": "^2.2.5",
     "path": "^0.12.7",
     "sequelize": "^6.5.1",
