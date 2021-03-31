@@ -11,11 +11,16 @@ const options = {
 };
 
 const initialize = async () =>{
-    const client = new Client();
-    client.connect(options)
-    console.log('ftp connnected')
-
-    return client;
+    return new Promise((resolve,reject)=>{
+        const client = new Client();
+        client.connect(options)
+        client.on('ready',()=>{
+            resolve(client)
+        })
+        client.on('error',(err)=>{
+            reject(new Error(err));
+        })
+    })
 };
 
 //move into or create the remote directory
