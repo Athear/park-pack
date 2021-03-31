@@ -16,21 +16,25 @@ const dogSignupFormHandler = async (event) => {
   const weight = document.querySelector('#weight').value.trim();
   const energy = document.querySelector('#energyLevel').value;
   const gender = document.querySelector('input[name="dogGender"]:checked').value;
-  
-  const picture = document.querySelector('#dogPic').value;
+  const picture = document.querySelector('#dogPic').files[0];
+  const pictureName = picture.name
+
+  var formData = new FormData();
+
+  formData.append('dogImage',picture);
+
+  //Store the actual dog picture
   if(picture){
-    const ftpResponse = await fetch('/api/ftp/dogimage',{
+    await fetch('/api/ftp/dogimage',{
       method: 'POST',
-      body: JSON.stringify({ dogImage:picture }),
-      headers: { 'Content-Type': 'application/json' },      
+      body: formData    
     })
-    console.log(ftpResponse)
   }
 
   if (name && age && breed && weight && energy) {
     const response = await fetch('/api/dogs/dogprofile', {
       method: 'POST',
-      body: JSON.stringify({ name, age, breed, weight, energy, gender }),
+      body: JSON.stringify({ name, age, breed, weight, energy, gender, pictureName }),
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
@@ -44,7 +48,7 @@ const dogSignupFormHandler = async (event) => {
       })
       console.log("OOPS, dog profile NOT created");
     }
-  }  
+  }
 };
 
 var loadFile = function(event) {
