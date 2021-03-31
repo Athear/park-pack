@@ -109,6 +109,7 @@ const getAFileSimple = async () =>{
 const connectionTest = async()=>{
     const client = await ftp.initialize();
     console.log("client connected");
+    client.end();
 }
 
 // testRun();
