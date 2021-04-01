@@ -44,8 +44,8 @@ const dogSignupFormHandler = async (event) => {
       console.log("dog profile created!" + response);
     } else {
       sweetAlert.fire( {
-        title: "User profile not created",
-        text: response.statusText,
+        title: "Doggo profile not created",
+        // text: response.statusText,
         icon: "warning"
       })
       console.log("OOPS, dog profile NOT created");

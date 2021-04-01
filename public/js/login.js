@@ -18,8 +18,8 @@ const loginFormHandler = async (event) => {
       document.location.replace("/dashboard");
     } else {
       sweetAlert.fire( {
-        title: "User not logged in",
-        text: response.statusText,
+        title: "User logged in failed",
+        // text: response.statusText,
         icon: "warning"
       });
     }
