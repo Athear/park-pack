@@ -1,13 +1,12 @@
 const router = require("express").Router();
 const { User, Dog, Friends } = require("../models");
 const { withAuth } = require("../utils/auth");
-const { QueryTypes } = require('sequelize');
-const sequelize = require('../config/connection')
+const { QueryTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 router.get("/", async (req, res) => {
   try {
-    // console.log(res);
-    res.render("homepage",{
+    res.render("homepage", {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -18,7 +17,6 @@ router.get("/", async (req, res) => {
 // gets and renders sign-in page for userprofile
 router.get("/ownerprofile", async (req, res) => {
   try {
-    // console.log(res);
     res.render("ownerprofile");
   } catch (err) {
     res.status(500).json(err);
@@ -28,7 +26,6 @@ router.get("/ownerprofile", async (req, res) => {
 //gets and renders signin page for dogprofile
 router.get("/dogprofile", async (req, res) => {
   try {
-    // console.log(res);
     res.render("doggyprofile");
   } catch (err) {
     res.status(500).json(err);
@@ -37,10 +34,9 @@ router.get("/dogprofile", async (req, res) => {
 
 //gets login page, redirects to dashboard upon log-in
 router.get("/login", (req, res) => {
-  
   if (req.session.logged_in) {
     res.redirect("/dashboard");
-    
+
     return;
   }
   res.render("login");
@@ -50,12 +46,11 @@ router.get("/login", (req, res) => {
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const dogData = await Dog.findAll({
-      include: [{model: User}]
-      //how to exclude user password from this get?
+      include: [{ model: User }],
     });
-    
+
     const dogs = dogData.map((profile) => profile.get({ plain: true }));
-   console.log(dogs);
+
     res.render("dashboard", {
       dogs,
       logged_in: req.session.logged_in,
@@ -72,11 +67,12 @@ router.get("/individualprofile/:id", withAuth, async (req, res) => {
         {
           model: User,
           attributes: { exclude: ["password"] },
-        }]
+        },
+      ],
     });
-    
+
     const dog = dogData.get({ plain: true });
-   
+
     res.render("individualprofile", {
       ...dog,
       logged_in: req.session.logged_in,
@@ -90,19 +86,22 @@ router.get("/individualprofile/:id", withAuth, async (req, res) => {
 //get and render mypack page
 router.get("/mypack", withAuth, async (req, res) => {
   try {
-    const userData = await sequelize.query(`select d.*
+    const userData = await sequelize.query(
+      `select d.*
       from user u
       inner join friend f on u.id = f.user_id
       inner join dog d on d.user_id = f.friend_id 
-      where u.id = $userId`,{
-        bind: { userId:req.session.user_id },
-        type: QueryTypes.SELECT
-    });
-   
+      where u.id = $userId`,
+      {
+        bind: { userId: req.session.user_id },
+        type: QueryTypes.SELECT,
+      }
+    );
+
     res.render("mypack", {
-        userData,
-        logged_in: true,
-      });
+      userData,
+      logged_in: true,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -118,17 +117,13 @@ router.get("/myprofile", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    
 
     const dogs = user.dogs;
-    console.log(dogs);
 
     res.render("myprofile", {
-     
       dogs,
       logged_in: req.session.logged_in,
-    })
-
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -147,7 +142,6 @@ router.get("/chat", withAuth, async (req, res) => {
 
 //get and render chatroom
 router.get("/chatroom/:room", withAuth, async (req, res) => {
-  console.log(req.params);
   try {
     res.render("chatroom", {
       name: req.params.room,
