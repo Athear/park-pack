@@ -83,7 +83,6 @@ sequelize.sync({ force: false }).then(() => {
 
     socket.on("chatMessage", async (msg) => {
       const user = getCurrentUser(socket.id);
-      console.log(msg);
       const newMessage = new chatMessage({
         message: msg,
         user: user.username,
