@@ -61,10 +61,6 @@ document.querySelectorAll(".addpack").forEach(function (element) {
 document.querySelectorAll(".viewprofile").forEach(function (element) {
   element.addEventListener("click", viewProfile);
 });
-// $(document).on("click", "#addpack", function (e) {
-//     e.preventDefault;
-//     recallOMDB($(this).attr("data-recent"));
-//   });
 
 //scroll handling using intersection observer api
 const header = document.querySelector(".header");
