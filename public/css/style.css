@@ -1,15 +1,6 @@
-/* color palate for site:
-"Ming":"#16697a" dark tealish--use for either navbar or jumbotron
-"Pacific Blue":"#489fb5" medium blue --use for either navbar or jumbotron
-"Middle Blue":"#82c0cc" light blue--use as accent color?
-"Isabelline":"#ede7e3" Off-white--use for background, and text color against Ming (teal)
-"Orange Peel":"#ffa62b" -- Orange: use for puppy icon and button colors/CTA items, possible on-hove class */
 
-/* Google Fonts for site:
-App name:
-Headers & body text: font-family: 'Lexend', sans-serif;
+/* Styles across all views */
 
-*/
 body{
   background-color: #ede7e3
   ;
@@ -86,7 +77,7 @@ color: #ffa62b
 }
 
 .offcanvas-style{
-  /* background-color:#16697a; */
+ 
   background-color: #489fb5f6;
   
 }
@@ -110,6 +101,8 @@ color: #ffa62b
 
 }
 
+/* Sign-up form stylings */
+
 .form {
   font-size: x-large;
 }
@@ -126,20 +119,11 @@ margin-top:0%;
 background-color: #ffffff;
 }
 
-
-/* Fonts: 
-font-family: 'Hachi Maru Pop', cursive;
-font-family: 'Lexend', sans-serif;
-font-family: 'Original Surfer', cursive;
- */
-
 /* profilecard view stylings */
 .cardh5, .list-unstyled{
 	color:#16697a;
 	font-family: 'Lexend', sans-serif;
 }
-
-
 
 /* chatroom stylings */
 .btn {
@@ -329,9 +313,9 @@ font-family: 'Original Surfer', cursive;
 /* energy range */
 
 input[type=range] {
-  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-  width: 75%; /* Specific width is required for Firefox. */
-  background: transparent; /* Otherwise white in Chrome */
+  -webkit-appearance: none; 
+  width: 75%; 
+  background: transparent; 
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -430,3 +414,15 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
+
+/* Google Fonts for site:
+Headers & body text: font-family: 'Lexend', sans-serif;
+Logo text: font-family: 'Original Surfer', cursive;
+*/
+
+/* color palate for site:
+"Ming":"#16697a" dark tealish--use for jumbotron
+"Pacific Blue":"#489fb5" medium blue --use for either navbar
+"Middle Blue":"#82c0cc" light blue--use as accent color?
+"Isabelline":"#ede7e3" Off-white--use for background, and text color against Ming (teal)
+"Orange Peel":"#ffa62b" -- Orange: use for puppy icon and button colors/CTA items, hover class */

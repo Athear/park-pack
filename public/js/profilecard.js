@@ -4,8 +4,7 @@ var addpack = async (event) => {
 
   const friend_id = event.srcElement.dataset.user;
   console.log(friend_id);
-  // const friend_id = event.dataset.user;
-  // const user_id =  req.session.user_id;
+
 
   if (friend_id) {
     const response = await fetch("/api/dogs/profilecard", {
@@ -14,15 +13,14 @@ var addpack = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      // document.location.replace("/dashboard");
-      // console.log("you've added to your pack!");
+    
       sweetAlert.fire({
         title: "This Doggo has been added to your pack!!",
         // text: response.statusText,
         showConfirmButton: true,
         icon: "success",
       });
-      // document.location.replace("/dashboard");
+
     } else {
       sweetAlert.fire({
         title: "This Doggo is already in  your pack!!",
@@ -30,7 +28,6 @@ var addpack = async (event) => {
         icon: "warning",
         showConfirmButton: true,
       });
-      // console.log("oops, theres a bug!");
     }
   }
 };
@@ -61,10 +58,7 @@ document.querySelectorAll(".addpack").forEach(function (element) {
 document.querySelectorAll(".viewprofile").forEach(function (element) {
   element.addEventListener("click", viewProfile);
 });
-// $(document).on("click", "#addpack", function (e) {
-//     e.preventDefault;
-//     recallOMDB($(this).attr("data-recent"));
-//   });
+
 
 //scroll handling using intersection observer api
 const header = document.querySelector(".header");

@@ -1,4 +1,4 @@
-const { Join_Dog_Activity } = require('../models');
+const { Join_Dog_Activity } = require("../models");
 
 const dogActivityData = [
   {

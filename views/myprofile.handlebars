@@ -4,19 +4,14 @@
     <div class="col-sm-12 col-md-8 col-lg-8 window">
         <h2 class="pageTitles formh2">About {{name}}</h>
             <hr>
-            {{#if pic}}
-            <img src="{{pic}}" class="img-fluid rounded-circle" alt="doggy profile image" id="dogProfImg">
-            {{else}}
-            <img src="/images/icons/parkpackicon.png" class="img-fluid" alt="placeholder image" id="dogprofilepic">
-            {{/if}}
+            <img src="{{ get_dog_pic user_id pic }}" class="img-fluid" alt="Puppy Profile Pic">
 
             <p>Hi my name is {{name}}! I'm a {{age}}-year-old {{gender}} {{breed}} who loves to play! Let's be friends!
             </p>
 
-            {{!-- <h2>About my Pet-Parent!</h2> --}}
+            
             <div class="form-group">
-                {{!-- <a href="/mypack"><button type="submit" class="btn btn-action" id="addpack">View My
-                        Pack!</button></a> --}}
+                
                 <a href="/chat
                     "><button type="submit" class="btn btn-action" id="addpack">Chat<i
                             class="fas fa-comments ms-3"></i></button></a>
