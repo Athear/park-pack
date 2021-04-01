@@ -40,7 +40,7 @@ const dogData = [
         age: 1,
         weight: 8,
         breed: "Havanese",
-        fixed: false,
+        fixed: "No",
         energy: 4,
         user_id: 4,
         pic: ""
@@ -85,7 +85,7 @@ const dogData = [
         weight: 17,
         breed: "French Bulldog",
         user_id: 8,
-        fixed: false,
+        fixed: "No",
         energy: 4,
         pic : ""
     },
