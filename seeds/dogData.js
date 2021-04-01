@@ -10,7 +10,7 @@ const dogData = [
         fixed: "Yes",
         energy: 1,
         user_id: 1,
-        pic: ""
+        pic: "shihtzu.jpg"
     },
     {
         name : "Misty",
@@ -21,7 +21,7 @@ const dogData = [
         fixed: "Yes",
         energy: 3,
         user_id: 2,
-        pic: ""
+        pic: "aussieShepard.jpeg"
     },
     {
         name : "Sugar",
@@ -32,7 +32,7 @@ const dogData = [
         fixed: "Yes",
         energy: 4,
         user_id: 3,
-        pic: ""
+        pic: "Pyrenees.jpg"
     },
     {
         name : "Autumn",
@@ -43,7 +43,7 @@ const dogData = [
         fixed: "No",
         energy: 4,
         user_id: 4,
-        pic: ""
+        pic: "Havanese.jpeg"
     },
     {
         name : "Manny",
@@ -54,7 +54,7 @@ const dogData = [
         fixed: "Yes",
         energy: 1,
         user_id: 5,
-        pic: ""
+        pic: "chihuahuaMix.jpg"
     },
     {
         name : "Bella",
@@ -65,7 +65,7 @@ const dogData = [
         fixed: "Yes",
         energy: 2,
         user_id: 6,
-        pic: ""
+        pic: "Husky_Mix.jpg"
     },
     {
         name : "Willow",
@@ -76,7 +76,7 @@ const dogData = [
         fixed: "Yes",
         energy: 4,
         user_id: 7,
-        pic: ""
+        pic: "Pitmix.png"
     },
     {
         name : "Frank",
@@ -87,7 +87,7 @@ const dogData = [
         user_id: 8,
         fixed: "No",
         energy: 4,
-        pic : ""
+        pic : "french_bulldog.png"
     },
     {
         name : "Bowie",
@@ -98,7 +98,7 @@ const dogData = [
         fixed: "Yes",
         energy: 2,
         user_id: 9,
-        pic: ""
+        pic: "Leonburger.jpeg"
     },
     {
         name : "Hank",
@@ -109,7 +109,7 @@ const dogData = [
         fixed: "Yes",
         energy: 2,
         user_id: 10,
-        pic: ""
+        pic: "greatDane.jpeg"
     }
 
 ];
