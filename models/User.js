@@ -50,7 +50,7 @@ User.init(
       validate: {
         len: [8],
       },
-    }
+    },
   },
   {
     hooks: {

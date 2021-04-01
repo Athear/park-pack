@@ -58,7 +58,7 @@ PARK PACK lives on Heroku.  <ol>
 
 ---
 
-<div align='center'><img src="public/images/gifchat.gif" alt="gif of park pack in action" width="300" height="300">
+<div align='center'><img src="public/images/chatpack.gif" alt="gif of park pack in action" width="300" height="300">
 
 --- 
 
