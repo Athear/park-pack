@@ -120,7 +120,7 @@ const dogData = [
         fixed: "Yes",
         energy: 4,
         user_id: 11,
-        pic: "chicky.jpeg"
+        pic: "chicky.jpg"
     }
 ];
 
