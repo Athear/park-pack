@@ -7,7 +7,9 @@ const sequelize = require('../config/connection')
 router.get("/", async (req, res) => {
   try {
     // console.log(res);
-    res.render("homepage");
+    res.render("homepage",{
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -35,10 +37,10 @@ router.get("/dogprofile", async (req, res) => {
 
 //gets login page, redirects to dashboard upon log-in
 router.get("/login", (req, res) => {
-  console.log("@@logged in at /login homeroute?@@", req.session.logged_in);
+  
   if (req.session.logged_in) {
     res.redirect("/dashboard");
-    //change this to userprofile?
+    
     return;
   }
   res.render("login");
@@ -96,8 +98,7 @@ router.get("/mypack", withAuth, async (req, res) => {
         bind: { userId:req.session.user_id },
         type: QueryTypes.SELECT
     });
-    console.log('user id : ',req.session.user_id)
-  console.log('user data: ',userData);
+   
     res.render("mypack", {
         userData,
         logged_in: true,
@@ -117,7 +118,7 @@ router.get("/myprofile", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    console.log("@@hit myprofile route data looks like this ", user);
+    
 
     const dogs = user.dogs;
     console.log(dogs);
