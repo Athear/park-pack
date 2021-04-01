@@ -4,7 +4,6 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const routes = require("./controllers");
 const helpers = require("./utils/helpers");
-// const http = require('http');
 const socketio = require("socket.io");
 const formatMessage = require("./utils/messages");
 const {
@@ -19,9 +18,7 @@ const { chatMessage } = require("./models");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
-// const server = http.createServer(app);
-// socket.fromClient(server);
-// const io = socketio(app);
+
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
@@ -45,7 +42,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
-// Set static folder
+
 const botName = "Pack Leader";
 
 sequelize.sync({ force: false }).then(() => {
@@ -53,7 +50,7 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`Now listening on port ${PORT}!`)
   );
   const io = socketio(server);
-  // Run when client connects
+
   io.on("connection", (socket) => {
     socket.on("joinRoom", async ({ username, room }) => {
       const user = userJoin(socket.id, username, room);
@@ -63,15 +60,14 @@ sequelize.sync({ force: false }).then(() => {
         where: {
           room: user.room,
         },
-        order: [["createdAt", 'DESC']],
+        order: [["createdAt", "DESC"]],
         limit: 10,
       });
-      console.log(messages);
+
       socket.emit("history", messages);
-      // Welcome current user
+
       socket.emit("message", formatMessage(botName, "Welcome to ParkPack!"));
 
-      // Broadcast when a user connects
       socket.broadcast
         .to(user.room)
         .emit(
@@ -79,14 +75,12 @@ sequelize.sync({ force: false }).then(() => {
           formatMessage(botName, `${user.username} has joined the chat`)
         );
 
-      // Send users and room info
       io.to(user.room).emit("roomUsers", {
         room: user.room,
         users: getRoomUsers(user.room),
       });
     });
 
-    // Listen for chatMessage
     socket.on("chatMessage", async (msg) => {
       const user = getCurrentUser(socket.id);
       console.log(msg);
@@ -99,7 +93,6 @@ sequelize.sync({ force: false }).then(() => {
       io.to(user.room).emit("message", formatMessage(user.username, msg));
     });
 
-    // Runs when client disconnects
     socket.on("disconnect", () => {
       const user = userLeave(socket.id);
 
@@ -109,7 +102,6 @@ sequelize.sync({ force: false }).then(() => {
           formatMessage(botName, `${user.username} has left the chat`)
         );
 
-        // Send users and room info
         io.to(user.room).emit("roomUsers", {
           room: user.room,
           users: getRoomUsers(user.room),
