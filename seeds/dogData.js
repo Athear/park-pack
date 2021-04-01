@@ -110,8 +110,18 @@ const dogData = [
         energy: 2,
         user_id: 10,
         pic: "greatDane.jpeg"
+    },
+    {
+        name : "Chiquitin",
+        gender: "Male",
+        age: 2,
+        weight: 12,
+        breed: "Pekinese Mix",
+        fixed: "Yes",
+        energy: 4,
+        user_id: 11,
+        pic: "chicky.jpeg"
     }
-
 ];
 
 const seedDog = () => Dog.bulkCreate(dogData);

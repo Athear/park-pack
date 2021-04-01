@@ -64,11 +64,11 @@ const userData = [
       genpref: false
     },
     {
-      first_name : "Markki",
-      last_name : "Meyer",
-      email : "markki@markki.com",
+      first_name : "Jon",
+      last_name : "MeyeJack",
+      email : "mjohn@jack.com",
       password : "password12345",
-      gender : "F",
+      gender : "M",
       zip: 55423,
       genpref: false
     },
@@ -87,6 +87,15 @@ const userData = [
       email : "nate@nate.com",
       password : "password12345",
       gender : "M",
+      zip: 55420,
+      genpref: false
+    },
+    {
+      first_name : "Markki",
+      last_name : "Markki",
+      email : "markki@gmail.com",
+      password : "password12345",
+      gender : "F",
       zip: 55420,
       genpref: false
     }
