@@ -68,11 +68,11 @@ const dogData = [
         pic: "Husky_Mix.jpg"
     },
     {
-        name : "Willow",
-        gender: "Female",
+        name : "Sunny",
+        gender: "Male",
         age: 1,
-        weight: 36,
-        breed: "Pit Bull Mix",
+        weight: 64,
+        breed: "Lab-Pit Mix",
         fixed: "Yes",
         energy: 4,
         user_id: 7,
