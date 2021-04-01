@@ -15,10 +15,15 @@
             <div class="form-group">
                 {{!-- <a href="/mypack"><button type="submit" class="btn btn-action" id="addpack">View My
                         Pack!</button></a> --}}
-                <a href="/chat
-                    "><button type="submit" class="btn btn-action" id="addpack">Chat<i
-                            class="fas fa-comments ms-3"></i></button></a>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-action addpack" id="addpack" data-user={{user_id}}>Add to My
+                        Pack<i class="fas fa-heart ms-3"></i></button>
+                </div>
+
+                <div class="form-group">
                 <a href="/dashboard"><button type="submit" class="btn btn-action" id="addpack">Dashboard<i
                             class="fas fa-paw ms-3"></i></button></a>
+                </div>
             </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
