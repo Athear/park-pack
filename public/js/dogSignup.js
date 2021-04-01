@@ -5,11 +5,6 @@ const dogSignupFormHandler = async (event) => {
   event.preventDefault();
   
 
-  // const fixed= document.getElementsByName('fixed').val();
-  
-  // getGender();
-  // getFixed();
-
   const name = document.querySelector('#dogName').value.trim();
   const age = document.querySelector('#age').value.trim();
   const breed = document.querySelector('#breed').value.trim();
@@ -64,21 +59,5 @@ document
   .addEventListener('click', dogSignupFormHandler);
 
 
-  
-// getGender = () => {
-//   const gender = document.getElementsByName('gender');
-//   for (i = 0; i < gender.length; i++) {
-//     if (gender[i].checked)
-//       gender.val() = gender[i].value;
-//       }
-// };
-
-// getFixed = () => {
-//   const isFixed = document.getElementsByName('fixed');
-//   for (i = 0; i < isFixed.length; i++) {
-//     if (isFixed[i].checked)
-//       isFixed[i].value;
-//   }
-// };
 
 
