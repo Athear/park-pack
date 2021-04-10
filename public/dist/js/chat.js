@@ -1,0 +1,1 @@
+document.getElementById("choose-chat").addEventListener("submit",function(a){console.log(a),a.preventDefault();const b=document.getElementById("room").value;location.replace("/chatroom/"+b)});
