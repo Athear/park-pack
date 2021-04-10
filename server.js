@@ -16,9 +16,10 @@ const sequelize = require("./config/connection");
 const { chatMessage } = require("./models");
 
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+var compression = require('compression')
 
 const app = express();
-
+app.use(compression())
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
